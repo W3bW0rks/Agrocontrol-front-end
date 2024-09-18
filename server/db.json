@@ -1,0 +1,255 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "producer_1",
+      "password": "producer1_password",
+      "roles": "PRODUCER"
+    },
+    {
+      "id": 2,
+      "username": "producer_2",
+      "password": "producer2_password",
+      "roles": "PRODUCER"
+    },
+    {
+      "id": 3,
+      "username": "distributor_1",
+      "password": "distributor1_password",
+      "roles": "DISTRIBUTOR"
+    }
+  ],
+  "producers": [
+    {
+      "id": 1,
+      "userId": 1,
+      "fullName": "Lionel Messi",
+      "city": "Lima",
+      "country": "Peru",
+      "phone": "123456789",
+      "documentNumber": "12345678"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "fullName": "Quichiano Ronaldo",
+      "city": "Lima",
+      "country": "Peru",
+      "phone": "987654321",
+      "documentNumber": "87654321"
+    }
+  ],
+  "distributors": [
+    {
+      "id": 3,
+      "userId": 3,
+      "fullName": "Neymar Junior",
+      "city": "Lima",
+      "country": "Peru",
+      "phone": "123456789",
+      "documentNumber": "12345678"
+    }
+  ],
+  "user_subscription": [
+    {
+      "id": 1,
+      "userId": 1,
+      "subscriptionType": "PREMIUM",
+      "subscriptionCost": 89.99,
+      "subscriptionState": true
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "subscriptionType": "BASIC",
+      "subscriptionCost": 19.99,
+      "subscriptionState": false
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "subscriptionType": "DISTRIBUTOR",
+      "subscriptionCost": 89.99,
+      "subscriptionState": true
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "subscriptionId": 1,
+      "userId": 1,
+      "cardHolderName": "Lionel Messi",
+      "cardNumber": "123456789",
+      "expireDate": "12-28",
+      "cvv": "123"
+    },
+    {
+      "id": 2,
+      "subscriptionId": 2,
+      "userId": 2,
+      "cardHolderName": "Quichiano Ronaldo",
+      "cardNumber": "123456789",
+      "expireDate": "12-28",
+      "cvv": "100"
+    }
+  ],
+  "fields": [
+    {
+      "id": 1,
+      "userId": 1,
+      "fieldName": "Field North",
+      "fieldSize": 30,
+      "fieldLocation": "Lima"
+    }
+  ],
+  "processes": [
+    {
+      "id": 1,
+      "type": "SEEDING",
+      "scheduledDate": "2024-09-15",
+      "fieldId": 1,
+      "totalWorkerCost": 1000,
+      "hours": null,
+      "workers": [
+        {
+          "workerId": 1,
+          "cost": 200
+        },
+        {
+          "workerId": 2,
+          "cost": 200
+        },
+        {
+          "workerId": 3,
+          "cost": 200
+        },
+        {
+          "workerId": 4,
+          "cost": 200
+        },
+        {
+          "workerId": 5,
+          "cost": 200
+        }
+      ],
+      "productsUsed": null,
+      "harvestedQuantityKg": null,
+      "pricePerKg": null,
+      "plantedQuantity": 1000,
+      "totalPlantCost": 1500,
+      "details": "Seeding process"
+    },
+    {
+      "id": 2,
+      "type": "IRRIGATION",
+      "scheduledDate": "2024-09-20",
+      "fieldId": 1,
+      "totalWorkerCost": 100,
+      "hours": 5,
+      "workers": [
+        {
+          "workerId": 1,
+          "cost": 100
+        }
+      ],
+      "productsUsed": null,
+      "harvestedQuantityKg": null,
+      "pricePerKg": null,
+      "plantedQuantity": null,
+      "totalPlantCost": null,
+      "details": "Irrigation process"
+    },
+    {
+      "id": 3,
+      "type": "FUMIGATION",
+      "scheduledDate": "2024-09-25",
+      "fieldId": 1,
+      "totalWorkerCost": 400,
+      "hours": 7,
+      "workers": [
+        {
+          "workerId": 1,
+          "cost": 200
+        },
+        {
+          "workerId": 2,
+          "cost": 200
+        }
+      ],
+      "productsUsed": [
+        {
+          "productId": 1,
+          "quantity": 10
+        },
+        {
+          "productId": 2,
+          "quantity": 5
+        }
+      ],
+      "harvestedQuantityKg": null,
+      "pricePerKg": null,
+      "plantedQuantity": null,
+      "totalPlantCost": null,
+      "details": "Fumigation process"
+    }
+  ],
+  "finances": [
+    {
+      "id": 1,
+      "processId": 1,
+      "totalCost": 3000,
+      "totalRevenue": null,
+      "date": "2024-09-25"
+    },
+    {
+      "id": 2,
+      "processId": 2,
+      "totalCost": 3000,
+      "totalRevenue": null,
+      "date": "2024-09-25"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Fertilizer",
+      "price": 10,
+      "quantity": 100
+    },
+    {
+      "id": 2,
+      "name": "Pesticide",
+      "price": 20,
+      "quantity": 50
+    }
+  ],
+  "agriculturalProcess": [
+    {
+      "id": 1,
+      "startDate": "2024-09-15",
+      "endDate": null,
+      "isFinished": false,
+      "fieldId": 1,
+      "seedingId": 1,
+      "irrigations": [
+        {
+          "irrigationId": 2
+        }
+      ],
+      "fumigations": [
+        {
+          "fumigationId": 3
+        }
+      ],
+      "harvestings": [],
+      "finances": [
+        {
+          "financeId": 1
+        },
+        {
+          "financeId": 2
+        }
+      ]
+    }
+  ]
+}
