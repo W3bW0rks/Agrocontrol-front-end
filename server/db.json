@@ -47,7 +47,8 @@
       "city": "Lima",
       "country": "Peru",
       "phone": "123456789",
-      "documentNumber": "12345678"
+      "companyName": "Distributor Company",
+      "ruc": "1234567890"
     }
   ],
   "user_subscription": [
@@ -100,6 +101,29 @@
       "fieldName": "Field North",
       "fieldSize": 30,
       "fieldLocation": "Lima"
+    }
+  ],
+  "fieldWorkers": [
+    {
+      "id": 1,
+      "fieldId": 1,
+      "fullName": "Field Worker 1",
+      "phone": "123456789",
+      "documentNumber": "12345678"
+    },
+    {
+      "id": 2,
+      "fieldId": 1,
+      "fullName": "Field Worker 2",
+      "phone": "123456789",
+      "documentNumber": "12345678"
+    },
+    {
+      "id": 3,
+      "fieldId": 1,
+      "fullName": "Field Worker 3",
+      "phone": "123456789",
+      "documentNumber": "12345678"
     }
   ],
   "processes": [
