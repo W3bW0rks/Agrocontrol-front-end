@@ -1,0 +1,15 @@
+<form (submit)="onSubmit()" #workerForm="ngForm" class="flex flex-col max-w-4xl">
+  <mat-form-field id="fullName-form-field">
+    <input matInput placeholder="Full Name" name="fullName" [(ngModel)]="worker.fullName" required>
+  </mat-form-field>
+  <mat-form-field id="phone-form-field">
+    <input matInput placeholder="Phone" name="phone" [(ngModel)]="worker.phone" required>
+  </mat-form-field>
+  <mat-form-field id="documentNumber-form-field">
+    <input matInput placeholder="Document Number" name="documentNumber" [(ngModel)]="worker.documentNumber" required>
+  </mat-form-field>
+  <ng-container>
+    <button mat-raised-button color="primary" [disabled]="workerForm.invalid">Add</button>
+    <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+  </ng-container>
+</form>
