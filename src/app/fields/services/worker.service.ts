@@ -7,6 +7,6 @@ export class WorkerService extends BaseService<Worker>{
 
   constructor() {
     super();
-    this.resourceEndpoint = '/workers';
+    this.resourceEndpoint = '/fieldWorkers';
   }
 }
