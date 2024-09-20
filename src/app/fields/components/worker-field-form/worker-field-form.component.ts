@@ -19,7 +19,7 @@ import {WorkerService} from "../../services/worker.service";
   styleUrl: './worker-field-form.component.css'
 })
 export class WorkerFieldFormComponent {
-  @Input() fieldId!: string; // Recibe el fieldId como input
+  @Input() fieldId!: number; // Recibe el fieldId como input
   worker!: Worker;
   @ViewChild('workerForm', { static: false}) workerForm!: NgForm;
   workerService: WorkerService = inject(WorkerService);
@@ -35,6 +35,7 @@ export class WorkerFieldFormComponent {
 
   onSubmit() {
     if (this.workerForm.form.valid) {
+      this.worker.fieldId = this.fieldId;
       this.workerService.create(this.worker).subscribe((response: any) => {
         console.log('Worker created', response);
       })
