@@ -24,6 +24,7 @@ export class WorkerFieldFormComponent {
   @Input() fieldId!: number; // Recibe el fieldId como input
   @Input() isModalOpen: boolean = false; // Recibe el isModalOpen como input
   @Output() close = new EventEmitter<void>();
+  @Output() success = new EventEmitter<void>();
   worker!: Worker;
   @ViewChild('workerForm', { static: false}) workerForm!: NgForm;
   workerService: WorkerService = inject(WorkerService);
@@ -43,6 +44,7 @@ export class WorkerFieldFormComponent {
       this.workerService.create(this.worker).subscribe((response: any) => {
         console.log('Worker created', response);
       })
+      this.success.emit(); // Emitir evento al enviar
       this.resetForm();
       this.isModalOpen = false;
     } else {
