@@ -1,9 +1,10 @@
-import {Component, inject, Input, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, FormsModule, NgForm, Validators} from '@angular/forms';
-import { MatFormField } from '@angular/material/form-field';
+import {Component, EventEmitter, inject, Input, Output, ViewChild} from '@angular/core';
+import {FormsModule, NgForm} from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 import { NgIf } from '@angular/common';
+import {MatDialogModule} from '@angular/material/dialog';
 import {Worker} from "../../models/worker.entity";
 import {WorkerService} from "../../services/worker.service";
 
@@ -11,15 +12,18 @@ import {WorkerService} from "../../services/worker.service";
   selector: 'app-worker-field-form',
   standalone: true,
   imports: [ FormsModule,
-    MatFormField,
+    MatFormFieldModule,
     MatInput,
     MatButton,
-    NgIf],
+    NgIf,
+    MatDialogModule ],
   templateUrl: './worker-field-form.component.html',
   styleUrl: './worker-field-form.component.css'
 })
 export class WorkerFieldFormComponent {
   @Input() fieldId!: number; // Recibe el fieldId como input
+  @Input() isModalOpen: boolean = false; // Recibe el isModalOpen como input
+  @Output() close = new EventEmitter<void>();
   worker!: Worker;
   @ViewChild('workerForm', { static: false}) workerForm!: NgForm;
   workerService: WorkerService = inject(WorkerService);
@@ -40,6 +44,7 @@ export class WorkerFieldFormComponent {
         console.log('Worker created', response);
       })
       this.resetForm();
+      this.isModalOpen = false;
     } else {
       console.log('Form is invalid');
     }
@@ -47,6 +52,8 @@ export class WorkerFieldFormComponent {
 
   onCancel() {
     this.resetForm();
+    this.isModalOpen = false;
+    this.close.emit(); // Emitir evento al cerrar
   }
 
 }
