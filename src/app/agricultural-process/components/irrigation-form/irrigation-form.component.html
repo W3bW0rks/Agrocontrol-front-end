@@ -1,0 +1,33 @@
+<div class="bg-white rounded-lg p-4 sm:p-6 max-w-screen-md w-full mx-4">
+  <form (submit)="onSubmit()" #irrigationForm="ngForm" class="flex flex-col">
+    <mat-form-field appearance="fill" class="mb-4">
+      <mat-label>Date</mat-label>
+      <input matInput placeholder="Date" name="date" [(ngModel)]="date" required disabled>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="mb-4">
+      <mat-label>Hours Irrigated</mat-label>
+      <input matInput type="number" placeholder="Hours Irrigated" name="hoursIrrigated" [(ngModel)]="irrigation.hoursIrrigated" required>
+    </mat-form-field>
+
+    <div *ngFor="let worker of workers; let i = index" class="flex items-center mb-2">
+      <mat-form-field appearance="fill" class="flex-1 mr-2">
+        <mat-label>Worker</mat-label>
+        <mat-select placeholder="Worker" [(ngModel)]="worker.workerId" name="worker{{i}}" required>
+          <mat-option *ngFor="let fieldWorker of fieldWorkers" [value]="fieldWorker.id">{{ fieldWorker.fullName }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="flex-1 mr-2">
+        <mat-label>Cost</mat-label>
+        <input matInput type="number" [(ngModel)]="worker.cost" name="cost{{i}}" required>
+      </mat-form-field>
+      <button type="button" mat-button (click)="removeWorker(i)">-</button>
+    </div>
+
+    <button type="button" mat-button (click)="addWorker()">Add Worker</button>
+
+    <div class="flex flex-col sm:flex-row justify-around mt-4">
+      <button [disabled]="irrigationForm.invalid" class="bg-primary px-4 py-2 text-white uppercase rounded hover:bg-primary-hover mb-2 sm:mb-0">Confirm</button>
+      <button type="button" (click)="onCancel()" class="px-4 py-2 bg-red-500 text-white uppercase rounded hover:bg-red-600">Cancel</button>
+    </div>  </form>
+</div>
