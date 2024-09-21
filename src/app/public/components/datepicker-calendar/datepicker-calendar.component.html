@@ -1,4 +1,8 @@
-<mat-card class="max-w-md">
-  <mat-calendar [(selected)]="selected" (selectedChange)="onDateChange($event)"></mat-calendar>
-</mat-card>
-<p>Selected date: {{getFormattedDate()}}</p>
+<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
+  <mat-card class="w-full max-w-md mb-4">
+    <mat-calendar [(selected)]="selected" (selectedChange)="onDateChange($event)"></mat-calendar>
+  </mat-card>
+  <p class="text-lg font-semibold text-gray-700">
+    Selected date: <span class="font-bold">{{ getFormattedDate() }}</span>
+  </p>
+</div>
