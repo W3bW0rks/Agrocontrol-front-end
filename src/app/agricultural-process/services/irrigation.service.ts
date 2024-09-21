@@ -9,6 +9,6 @@ export class IrrigationService extends BaseService<Irrigation>{
 
   constructor() {
     super();
-    this.resourceEndpoint = '/irrigationsDetails';
+    this.resourceEndpoint = '/irrigationDetails';
   }
 }
