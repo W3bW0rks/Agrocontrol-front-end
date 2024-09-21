@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, model} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, model, Output} from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -13,7 +13,15 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatepickerCalendarComponent {
+  @Output() dateSelected = new EventEmitter<string | null>(); // Cambiado a string
+
   selected: Date | null = null;
+
+  // Método para cambiar la fecha seleccionada
+  onDateChange(date: Date | null) {
+    this.selected = date;
+    this.dateSelected.emit(this.selected ? this.selected.toDateString() : null); // Emitir el toDateString
+  }
 
   getFormattedDate(): string | null {
     return this.selected ? this.selected.toDateString() : null;
