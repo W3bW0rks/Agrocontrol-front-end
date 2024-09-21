@@ -55,11 +55,16 @@ export class IrrigationFormComponent {
     if (this.irrigationForm.form.valid) {
       this.irrigation.agriculturalProcessId = this.agriculturalProcessId;
       this.irrigation.date = this.date;
-      this.irrigation.workers = this.workers.filter(worker => worker.workerId && worker.cost > 0); // Solo envía trabajadores válidos
+      // Filtra los trabajadores válidos
+      this.irrigation.workers = this.workers.filter(worker => worker.workerId && worker.cost > 0);
       console.log('Irrigation', this.irrigation);
+
       this.irrigationService.create(this.irrigation).subscribe((response: any) => {
         console.log('Irrigation created', response);
+      }, error => {
+        console.error('Error creating irrigation', error);
       });
+
       this.success = true;
       this.resetForm();
     } else {
@@ -67,14 +72,26 @@ export class IrrigationFormComponent {
     }
   }
 
+  getWorkers() {
+    this.workerService.getAll().subscribe((response: any) => {
+      this.fieldWorkers = response;
+    });
+  }
+
   addWorker() {
     this.workers.push({ workerId: 0, cost: 0 }); // Add a new worker object
+    this.calculateTotalCost();
   }
 
   removeWorker(index: number) {
     if (this.workers.length > 1) {
       this.workers.splice(index, 1); // Remove the worker at the specified index
+      this.calculateTotalCost();
     }
+  }
+
+  calculateTotalCost() {
+    this.irrigation.totalWorkersCost = this.workers.reduce((acc, worker) => acc + worker.cost, 0);
   }
 
   onCancel() {
@@ -82,10 +99,5 @@ export class IrrigationFormComponent {
     this.success = false;
   }
 
-  getWorkers() {
-    this.workerService.getAll().subscribe((response: any) => {
-      this.fieldWorkers = response;
-    });
-  }
 }
 
