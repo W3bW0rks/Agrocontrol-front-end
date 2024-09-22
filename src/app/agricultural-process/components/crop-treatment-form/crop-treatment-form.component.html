@@ -9,6 +9,14 @@
       <input matInput placeholder="Date" name="date" [(ngModel)]="date" required disabled>
     </mat-form-field>
 
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Type</mat-label>
+      <mat-select placeholder="Type" name="treatmentType" [(ngModel)]="cropTreatment.treatmentType" required>
+        <mat-option [value]="'Fertilization'">Fertilization</mat-option>
+        <mat-option [value]="'Fumigation'">Fumigation</mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <div *ngFor="let product of products; let i = index" class="flex justify-center items-center space-x-2 mb-2">
       <mat-form-field appearance="fill" class="flex-1">
         <mat-label>Product</mat-label>
