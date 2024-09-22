@@ -33,7 +33,7 @@ export class CropTreatmentFormComponent {
   @Input() date!: string;
   success = false;
   cropTreatment!: CropTreatment;
-  @ViewChild('cropTreatmentForm', { static: false }) cropTreatmentForm!: NgForm;
+  @ViewChild('cropTreatmentFrom', { static: false }) cropTreatmentFrom!: NgForm;
   userProducts: any = [];
   products: { productId: number; quantity: number }[] = [
     { productId: 0, quantity: 0 }
@@ -54,7 +54,7 @@ export class CropTreatmentFormComponent {
   }
 
   private resetForm() {
-    this.cropTreatmentForm.resetForm();
+    this.cropTreatmentFrom.resetForm();
     this.cropTreatment = new CropTreatment({});
     this.workers = [
       { workerId: 0, cost: 0 }
@@ -65,13 +65,14 @@ export class CropTreatmentFormComponent {
   }
 
   onSubmit() {
-    if (this.cropTreatmentForm.form.valid && this.isWorkersAndProductsValid()) {
+    if (this.cropTreatmentFrom.form.valid && this.isWorkersAndProductsValid()) {
       this.cropTreatment.agriculturalProcessId = this.agriculturalProcessId;
       this.cropTreatment.date = this.date;
       // Filtra los trabajadores válidos
       this.cropTreatment.workers = this.workers;
       // Filtra los productos válidos
       this.cropTreatment.productsUsed = this.products;
+      this.calculateTotalCost();
       this.cropTreatmentService.create(this.cropTreatment).subscribe((response: any) => {
         console.log('Crop Treatment created', response);
         this.success = true;
