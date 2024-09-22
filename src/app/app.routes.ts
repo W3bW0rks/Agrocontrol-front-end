@@ -1,3 +1,9 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import {
+  IrrigationSchedulerComponent
+} from "./agricultural-process/pages/irrigation-scheduler/irrigation-scheduler.component";
+
+export const routes: Routes = [
+  { path: 'irrigation-scheduler', component: IrrigationSchedulerComponent },
+];
