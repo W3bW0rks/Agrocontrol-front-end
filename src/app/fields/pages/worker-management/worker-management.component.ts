@@ -5,6 +5,7 @@ import {WorkersFieldTableComponent} from "../../components/workers-field-table/w
 import {Worker} from "../../models/worker.entity";
 import {WorkerService} from "../../services/worker.service";
 import {MatTableDataSource} from "@angular/material/table";
+import {WorkersTablePopUpComponent} from "../../components/workers-table-pop-up/workers-table-pop-up.component";
 
 @Component({
   selector: 'app-worker-management',
@@ -12,7 +13,8 @@ import {MatTableDataSource} from "@angular/material/table";
   imports: [
     MatButton,
     WorkerFieldFormComponent,
-    WorkersFieldTableComponent
+    WorkersFieldTableComponent,
+    WorkersTablePopUpComponent
   ],
   templateUrl: './worker-management.component.html',
   styleUrl: './worker-management.component.css'
