@@ -9,6 +9,7 @@ module.exports = {
         primary: '#2FB95D',
         'primary-hover': '#259a4b',
         'secondary': '#043A3A',
+        'secondary-hover': '#032d2d',
         'fontcolor': '#525252'
       },
       fontFamily: {
