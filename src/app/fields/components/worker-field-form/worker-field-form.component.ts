@@ -21,7 +21,7 @@ import {WorkerService} from "../../services/worker.service";
   styleUrl: './worker-field-form.component.css'
 })
 export class WorkerFieldFormComponent {
-  @Input() fieldId!: number; // Recibe el fieldId como input
+  @Input() userId!: number; // Recibe el fieldId como input
   @Input() isModalOpen: boolean = false; // Recibe el isModalOpen como input
   @Output() close = new EventEmitter<void>();
   @Output() success = new EventEmitter<void>();
@@ -40,7 +40,7 @@ export class WorkerFieldFormComponent {
 
   onSubmit() {
     if (this.workerForm.form.valid) {
-      this.worker.fieldId = this.fieldId;
+      this.worker.userId = this.userId;
       this.workerService.create(this.worker).subscribe((response: any) => {
         console.log('Worker created', response);
       })

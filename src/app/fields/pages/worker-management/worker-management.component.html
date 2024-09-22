@@ -1,3 +1,3 @@
 <button mat-raised-button color="primary" (click)="openModal()" class="mt-4">Add Worker</button>
 <app-workers-field-table [workers]="dataSource" />
-<app-worker-field-form [isModalOpen]="modalOpen" (close)="closeModal()" [fieldId]="1" (success)="handleSuccess()" />
+<app-worker-field-form [isModalOpen]="modalOpen" (close)="closeModal()" [userId]="1" (success)="handleSuccess()" />
