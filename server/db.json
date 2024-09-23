@@ -303,14 +303,16 @@
   "products": [
     {
       "id": 1,
+      "userId": 1,
       "name": "Fertilizer",
-      "price": 10,
+      "totalCost": 1000,
       "quantity": 100
     },
     {
       "id": 2,
+      "userId": 1,
       "name": "Pesticide",
-      "price": 20,
+      "totalCost": 500,
       "quantity": 50
     }
   ]
