@@ -106,18 +106,17 @@
   "agriculturalProcess": [
     {
       "id": 1,
-      "userId": 1,
-      "plantType": "Tomato",
+      "fieldId": 1,
       "startDate": "2024-09-15",
       "endDate": null,
-      "isFinished": false,
-      "details": "Tomato process"
+      "isFinished": false
     }
   ],
   "seedingDetails": [
     {
       "id": 1,
       "agriculturalProcessId": 1,
+      "plantType": "Tomato",
       "date": "2024-09-15",
       "plantedQuantity": 1000,
       "totalPlantCost": 500,
