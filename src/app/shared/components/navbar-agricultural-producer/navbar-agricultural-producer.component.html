@@ -1,52 +1,20 @@
-<mat-drawer-container class="h-screen">
-  <!-- Sidenav -->
-  <mat-drawer
-    class="w-64 bg-green-900 text-white"
-    mode="side"
-    [opened]="isSidenavOpened"
-  >
+<mat-toolbar color="primary" class="flex justify-between px-4">
+  <div class="flex items-center space-x-4">
+    <!-- Ícono del menú -->
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!-- Título de la aplicación -->
+    <span class="text-2xl font-bold">AgroControl</span>
+  </div>
 
-    <!-- Contenido del menú lateral -->
-    <div class="p-4 text-lg font-bold">
-      <mat-icon>agriculture</mat-icon> AgroControl
-    </div>
-
-    <nav class="space-y-2 px-4">
-      <a href="#" class="block py-2">Home</a>
-      <a href="#" class="block py-2">Field North</a>
-      <a href="#" class="block py-2">Irrigation</a>
-      <a href="#" class="block py-2">Fumigation & Fertilization</a>
-      <a href="#" class="block py-2">Harvest</a>
-      <a href="#" class="block py-2">Finances</a>
-      <a href="#" class="block py-2">Log Out</a>
-    </nav>
-  </mat-drawer>
-
-  <!-- Contenido principal -->
-  <mat-drawer-content>
-    <!-- Barra superior -->
-    <mat-toolbar color="primary" class="flex justify-between px-4">
-      <div class="flex items-center space-x-4">
-        <!-- Ícono del menú -->
-        <button mat-icon-button (click)="toggleSidenav()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span class="text-2xl font-bold">AgroControl</span>
-      </div>
-
-      <!-- Íconos de notificaciones y perfil -->
-      <div class="flex items-center space-x-4">
-        <mat-icon>notifications</mat-icon>
-        <span>Alejandro</span>
-        <mat-icon>account_circle</mat-icon>
-      </div>
-    </mat-toolbar>
-
-    <!-- Aquí va el contenido principal de la página -->
-    <div class="p-4">
-      <h1 class="text-3xl font-bold">Field North</h1>
-      <!-- Puedes agregar más contenido aquí -->
-    </div>
-  </mat-drawer-content>
-</mat-drawer-container>
-
+  <!-- Íconos de notificaciones y perfil -->
+  <div class="flex items-center space-x-4">
+    <!-- Icono de notificaciones -->
+    <mat-icon>notifications</mat-icon>
+    <!-- Nombre de usuario -->
+    <span>Alejandro</span>
+    <!-- Icono de perfil -->
+    <mat-icon>account_circle</mat-icon>
+  </div>
+</mat-toolbar>

@@ -8,11 +8,14 @@ import {CardPlantationComponent} from "./agricultural-process/components/card-pl
 import {
   NavbarAgriculturalProducerComponent
 } from "./shared/components/navbar-agricultural-producer/navbar-agricultural-producer.component";
+import {
+  HomeAgriculturalProcessComponent
+} from "./agricultural-process/pages/home-agricultural-process/home-agricultural-process.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardIrrigationDetailsComponent, IrrigationFormComponent, CardPlantationComponent, NavbarAgriculturalProducerComponent],
+  imports: [RouterOutlet, CardIrrigationDetailsComponent, IrrigationFormComponent, CardPlantationComponent, NavbarAgriculturalProducerComponent, HomeAgriculturalProcessComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

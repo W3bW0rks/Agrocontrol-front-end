@@ -1,1 +1,19 @@
-<p>home-agricultural-process works!</p>
+<mat-drawer-container class="h-screen flex">
+  <!-- Sidenav -->
+  <mat-drawer #drawer class="w-64 bg-green-900 text-white" mode="side" [opened]="isSidenavOpened">
+    <app-sidenav-agricultural-producer></app-sidenav-agricultural-producer> <!-- Aquí incluyes el componente del sidenav -->
+  </mat-drawer>
+
+  <!-- Contenido principal -->
+  <mat-drawer-content class="flex flex-row">
+    <!-- Navbar en la misma fila -->
+    <app-navbar-agricultural-producer (toggleSidenav)="toggleSidenav()"></app-navbar-agricultural-producer>
+
+    <!-- Resto del contenido que se adaptará debajo del navbar -->
+    <div class="p-4 w-full">
+      <app-card-plantation></app-card-plantation>
+      <app-card-irrigation-details></app-card-irrigation-details>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+

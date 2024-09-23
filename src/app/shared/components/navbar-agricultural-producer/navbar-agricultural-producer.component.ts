@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
@@ -12,9 +12,11 @@ import {MatButtonModule} from "@angular/material/button";
   styleUrl: './navbar-agricultural-producer.component.css'
 })
 export class NavbarAgriculturalProducerComponent {
-  isSidenavOpened = true;
+  // Emite un evento cuando se hace clic en el botón del menú
+  @Output() toggleSidenav = new EventEmitter<void>();
 
-  toggleSidenav() {
-    this.isSidenavOpened = !this.isSidenavOpened;
+  // Función que emite el evento para alternar el sidenav
+  onToggleSidenav(): void {
+    this.toggleSidenav.emit();
   }
 }
