@@ -5,7 +5,7 @@ import {Fields} from "../models/fields.entity";
 @Injectable({
   providedIn: 'root'
 })
-export class FieldsServiceService extends BaseService<Fields>{
+export class FieldsService extends BaseService<Fields>{
 
   constructor() {
     super();
