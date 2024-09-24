@@ -5,6 +5,7 @@ import { MatButton } from "@angular/material/button";
 import { FieldsService } from "../../services/fields.service";
 import { NgIf } from "@angular/common";
 import { FieldFormEditComponent } from "../field-form-edit/field-form-edit.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-field-card',
@@ -29,6 +30,8 @@ export class FieldCardComponent {
 
   fieldService: FieldsService = inject(FieldsService);
 
+  constructor(private router: Router) {}
+
   onFieldDeleted(fieldId: number): void {
     this.fieldService.delete(fieldId).subscribe((response: any) => {
       console.log(`Field with ID ${fieldId} deleted successfully.`);
@@ -47,5 +50,9 @@ export class FieldCardComponent {
   onEditSuccess() {
     this.editField.emit();
     this.closeModal();
+  }
+
+  goToHome(fieldId: number) {
+    this.router.navigate(['home-agricultural-process', fieldId]);
   }
 }

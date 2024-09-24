@@ -1,5 +1,5 @@
 <mat-card class="w-full max-w-sm mx-auto bg-white shadow-lg rounded-lg" appearance="outlined">
-  <img mat-card-image src="/assets/img/fields1.png" alt="Photo of a field" class="object-cover h-48 w-full rounded-t-lg">
+  <img mat-card-image src="/assets/img/fields1.png" alt="Photo of a field" class="object-cover h-48 w-full rounded-t-lg" (click)="goToHome(field.id)">
   <mat-card-content class="p-4">
     <h3 class="text-lg font-semibold">{{ field.fieldName }}</h3>
     <p class="text-gray-600">Land Size: {{ field.fieldSize }}</p>

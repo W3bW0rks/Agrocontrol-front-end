@@ -28,7 +28,7 @@ export class CardFieldListComponent implements OnInit {
   isEditModalOpen: boolean = false; // Nueva variable para manejar el modal de edición
   selectedFieldId!: number; // ID del campo seleccionado para editar
 
-  constructor(private fieldService: FieldsService, private router: Router) {}
+  constructor(private fieldService: FieldsService) {}
 
   ngOnInit(): void {
     this.loadCurrentUserId(); // Carga el userId desde localStorage
@@ -84,9 +84,5 @@ export class CardFieldListComponent implements OnInit {
 
   reload() {
     this.loadFields();
-  }
-
-  goToHome(fieldId: number) {
-    this.router.navigate(['home-agricultural-process', fieldId]);
   }
 }

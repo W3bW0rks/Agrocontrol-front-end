@@ -10,11 +10,11 @@ import {
   SeedingRegistrationComponent
 } from './agricultural-process/pages/seeding-registration/seeding-registration.component';
 import { LoginFormComponent } from './profile-management/components/login-form/login-form.component';
-import { CardFieldListComponent } from './fields/components/card-field-list/card-field-list.component';
 import {
   HomeAgriculturalProcessComponent
 } from "./public/pages/home-agricultural-process/home-agricultural-process.component";
 import {HomeViewComponent} from "./agricultural-process/pages/home-view/home-view.component";
+import {FieldsViewComponent} from "./fields/pages/fields-view/fields-view.component";
 
 export const routes: Routes = [
   {
@@ -29,7 +29,7 @@ export const routes: Routes = [
   },
   {
     path: 'field/:role/:id',
-    component: CardFieldListComponent,
+    component: FieldsViewComponent,
     data: { name: 'field' }
   },
   {
