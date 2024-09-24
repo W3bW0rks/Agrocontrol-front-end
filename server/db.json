@@ -106,8 +106,7 @@
   "agriculturalProcess": [
     {
       "id": 1,
-      "userId": 1,
-      "plantType": "Tomato",
+      "fieldId": 1,
       "startDate": "2024-09-15",
       "endDate": null,
       "isFinished": false,
@@ -121,12 +120,14 @@
       "endDate": null,
       "isFinished": false,
       "details": "Potato process"
+      "isFinished": false
     }
   ],
   "seedingDetails": [
     {
       "id": 1,
       "agriculturalProcessId": 1,
+      "plantType": "Tomato",
       "date": "2024-09-15",
       "plantedQuantity": 1000,
       "totalPlantCost": 500,
@@ -312,14 +313,16 @@
   "products": [
     {
       "id": 1,
+      "userId": 1,
       "name": "Fertilizer",
-      "price": 10,
+      "totalCost": 1000,
       "quantity": 100
     },
     {
       "id": 2,
+      "userId": 1,
       "name": "Pesticide",
-      "price": 20,
+      "totalCost": 500,
       "quantity": 50
     }
   ]
