@@ -5,6 +5,7 @@ import {WorkersFieldTableComponent} from "../../components/workers-field-table/w
 import {Worker} from "../../models/worker.entity";
 import {WorkerService} from "../../services/worker.service";
 import {MatTableDataSource} from "@angular/material/table";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-worker-management',
@@ -21,6 +22,9 @@ export class WorkerManagementComponent implements OnInit{
   modalOpen: boolean = false;
   protected dataSource!: Array<Worker>;
   private workerService: WorkerService = inject(WorkerService);
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
     this.getWorkers();
@@ -41,5 +45,10 @@ export class WorkerManagementComponent implements OnInit{
 
   closeModal() {
     this.modalOpen = false;
+  }
+
+  goToHome() {
+    const agriculturalProcessId = localStorage.getItem('agriculturalProcessId');
+    this.router.navigate(['home-agricultural-process', agriculturalProcessId]);
   }
 }
