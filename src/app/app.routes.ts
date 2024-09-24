@@ -36,7 +36,7 @@ export const routes: Routes = [
     path: '', component: HomeAgriculturalProcessComponent,
     children: [
       {
-        path: 'home',
+        path: 'home-agricultural-process/:id',
         component: HomeViewComponent,
       },
       {

@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import {MatButton} from "@angular/material/button";
 import {FieldFormComponent} from "../field-form/field-form.component";
 import {MatIconModule} from "@angular/material/icon";
-
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-card-field-list',
@@ -25,9 +25,10 @@ export class CardFieldListComponent implements OnInit{
   type:string='Add';
   fields: Fields[]=[];
   currentUserId!:number;
+  currentProcessId!:number;
   isModalOpen:boolean=false;
 
-  constructor(private fieldService:FieldsService) {
+  constructor(private fieldService:FieldsService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -86,4 +87,9 @@ export class CardFieldListComponent implements OnInit{
   reload() {
     this.loadFields();
   }
+
+  goToHome(fieldId: number) {
+    this.router.navigate(['home-agricultural-process', fieldId]);
+  }
+
 }
