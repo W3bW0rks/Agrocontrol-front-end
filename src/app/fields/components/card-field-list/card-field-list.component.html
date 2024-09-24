@@ -5,20 +5,13 @@
   </div>
 </div>
 
-<app-field-form
+<app-field-form-edit
   *ngIf="isModalOpen"
   [currentUserId]="currentUserId"
   [isModalOpen]="isModalOpen"
   (close)="closeModal()"
   (success)="onFieldAdded()">
-</app-field-form>
+</app-field-form-edit>
 
-<!-- Formulario de agregar -->
-<app-field-form
-  *ngIf="isModalOpen"
-  [currentUserId]="currentUserId"
-  [isModalOpen]="isModalOpen"
-  (close)="closeModal()"
-  (success)="onFieldAdded()"
-></app-field-form>
+
 

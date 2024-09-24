@@ -7,7 +7,7 @@ import {MatInput} from "@angular/material/input";
 import {NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-field-form-edit',
+  selector: 'app-field-form',
   standalone: true,
   imports: [
     FormsModule,
@@ -17,8 +17,8 @@ import {NgIf} from "@angular/common";
     NgIf,
     ReactiveFormsModule
   ],
-  templateUrl: './field-form-edit.component.html',
-  styleUrl: './field-form-edit.component.css'
+  templateUrl: './field-form.component.html',
+  styleUrl: './field-form.component.css'
 })
 export class FieldFormEditComponent implements OnInit{
   @Input() isModalOpen: boolean=true ;

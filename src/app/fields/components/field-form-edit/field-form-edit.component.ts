@@ -10,7 +10,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 
 @Component({
-  selector: 'app-field-form',
+  selector: 'app-field-form-edit',
   standalone: true,
   imports: [
     NgIf,
@@ -20,8 +20,8 @@ import { MatInputModule } from "@angular/material/input";
     MatFormFieldModule,
     MatInputModule
   ],
-  templateUrl: './field-form.component.html',
-  styleUrl: './field-form.component.css'
+  templateUrl: './field-form-edit.component.html',
+  styleUrl: './field-form-edit.component.ts'
 })
 export class FieldFormComponent implements OnInit{
   @Input() isModalOpen: boolean=true ;

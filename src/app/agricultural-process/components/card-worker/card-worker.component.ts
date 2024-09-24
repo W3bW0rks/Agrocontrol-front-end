@@ -3,6 +3,7 @@ import {CommonModule} from "@angular/common";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButton} from "@angular/material/button";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-card-worker',
@@ -14,4 +15,11 @@ import {MatButton} from "@angular/material/button";
 export class CardWorkerComponent {
   @Input()
   nameWorkers: string[] = []
+
+  constructor(private router: Router) {
+  }
+
+  goToWorkerManagement() {
+    this.router.navigate(['/worker-management']);
+  }
 }

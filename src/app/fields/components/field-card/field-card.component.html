@@ -1,5 +1,5 @@
 <mat-card class="w-96" appearance="outlined">
-  <img mat-card-image src="/assets/img/fields1.png" alt="Photo of a Shiba Inu">
+  <img mat-card-image src="/assets/img/fields1.png" alt="Photo of a Shiba Inu" (click)="goToHome(field.id)">
   <mat-card-content>
     <h3>{{ field.fieldName }}</h3>
     <p>Land Size: {{ field.fieldSize }}</p>
@@ -11,11 +11,11 @@
   </mat-card-actions>
 </mat-card>
 
-<app-field-form-edit
+<app-field-form
   *ngIf="isModalOpen"
   [fieldId]="field.id"
   [currentUserId]="field.userId"
   [isModalOpen]="isModalOpen"
   (close)="closeModal()"
   (success)="onEditSuccess()"
-></app-field-form-edit>
+></app-field-form>

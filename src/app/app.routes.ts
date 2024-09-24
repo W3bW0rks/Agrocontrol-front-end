@@ -15,6 +15,8 @@ import {
 } from "./public/pages/home-agricultural-process/home-agricultural-process.component";
 import {HomeViewComponent} from "./agricultural-process/pages/home-view/home-view.component";
 import {FieldsViewComponent} from "./fields/pages/fields-view/fields-view.component";
+import {WorkerManagementComponent} from "./fields/pages/worker-management/worker-management.component";
+
 
 export const routes: Routes = [
   {
@@ -38,6 +40,10 @@ export const routes: Routes = [
       {
         path: 'home-agricultural-process/:id',
         component: HomeViewComponent,
+      },
+      {
+        path: 'worker-management',
+        component: WorkerManagementComponent,
       },
       {
         path: 'irrigation-scheduler/:id',
