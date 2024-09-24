@@ -20,7 +20,6 @@ import {FieldFormComponent} from "../field-form/field-form.component";
   styleUrl: './card-field-list.component.css'
 })
 export class CardFieldListComponent implements OnInit{
-  type:string='Add';
   fields: Fields[]=[];
   @Input() currentUserId!:number;
   isModalOpen:boolean=false;
@@ -45,7 +44,6 @@ export class CardFieldListComponent implements OnInit{
 
   openModal(): void {
     this.isModalOpen = true;
-    this.type='Add';
   }
 
   closeModal(): void {
@@ -59,12 +57,6 @@ export class CardFieldListComponent implements OnInit{
 
 
   protected readonly open = open;
-
-  editModal() {
-    this.isModalOpen = true;
-    this.type = 'Edit';
-  }
-
   reload() {
     this.loadFields();
   }
