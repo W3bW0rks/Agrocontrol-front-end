@@ -7,15 +7,25 @@
   <!-- Contenido principal -->
   <mat-drawer-content class="flex flex-row">
     <app-navbar-agricultural-producer (toggleSidenav)="toggleSidenav()"></app-navbar-agricultural-producer>
+
     <div class="p-4 w-full">
-      <app-card-plantation [agriculturalProcess]="agriculturalProcess"></app-card-plantation>
+      <!-- Flex container para los dos primeros componentes -->
+      <div class="flex flex-col md:flex-row md:space-x-6 space-y-9">
+        <!-- Componente Card Plantation -->
+        <app-card-plantation [agriculturalProcess]="agriculturalProcess" class="w-full md:w-1/2"></app-card-plantation>
+        <!-- Componente Card Worker -->
+        <app-card-worker [nameWorkers]="nameWorkers" class="w-full md:w-1/2"></app-card-worker>
+      </div>
 
-      <!-- Card para Irrigation -->
-      <app-card-irrigation-details [irrigation]="upcomingIrrigation"></app-card-irrigation-details>
+      <!-- Espacio más grande entre las secciones -->
+      <div class="flex flex-col space-y-9 mt-6  ">
+        <!-- Card para Irrigation -->
+        <app-card-irrigation-details [irrigation]="upcomingIrrigation"></app-card-irrigation-details>
 
-      <!-- Cards para los Treatments -->
-      <app-card-treatment-details [treatment]="upcomingFumigation" treatmentType="Fumigation"></app-card-treatment-details>
-      <app-card-treatment-details [treatment]="upcomingFertilization" treatmentType="Fertilization"></app-card-treatment-details>
+        <!-- Cards para los Treatments -->
+        <app-card-treatment-details [treatment]="upcomingFumigation"></app-card-treatment-details>
+        <app-card-treatment-details [treatment]="upcomingFertilization"></app-card-treatment-details>
+      </div>
     </div>
   </mat-drawer-content>
 </mat-drawer-container>

@@ -16,6 +16,7 @@ import {WorkerService} from "../../../fields/services/worker.service";
 import {Seeding} from "../../models/seeding.entity";
 import {forkJoin, Observable} from 'rxjs';
 import {Worker} from "../../../fields/models/worker.entity";
+import {CardWorkerComponent} from "../../components/card-worker/card-worker.component";
 @Component({
   selector: 'app-home-agricultural-process',
   standalone: true,
@@ -25,7 +26,8 @@ import {Worker} from "../../../fields/models/worker.entity";
     NavbarAgriculturalProducerComponent,
     CardPlantationComponent,
     CardIrrigationDetailsComponent,
-    CardTreatmentDetailsComponent
+    CardTreatmentDetailsComponent,
+    CardWorkerComponent
   ],
   templateUrl: './home-agricultural-process.component.html',
   styleUrls: ['./home-agricultural-process.component.css']
