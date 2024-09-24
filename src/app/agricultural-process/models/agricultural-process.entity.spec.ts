@@ -1,8 +1,7 @@
-import { AgriculturalProcess } from './agricultural-process.entity';
+import { AgriculturalProcessEntity } from './agricultural-process.entity';
 
-describe('AgriculturalProcedureEntity', () => {
+describe('AgriculturalProcessEntity', () => {
   it('should create an instance', () => {
-    // @ts-ignore
-    expect(new AgriculturalProcess()).toBeTruthy();
+    expect(new AgriculturalProcessEntity()).toBeTruthy();
   });
 });

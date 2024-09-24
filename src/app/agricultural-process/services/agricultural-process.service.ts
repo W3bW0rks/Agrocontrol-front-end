@@ -5,10 +5,11 @@ import {AgriculturalProcess} from "../models/agricultural-process.entity";
 @Injectable({
   providedIn: 'root'
 })
-export class AgriculturalProcessService extends BaseService<AgriculturalProcess> {
+
+export class AgriculturalProcessService extends BaseService<AgriculturalProcess>{
 
   constructor() {
-    super()
+    super();
     this.resourceEndpoint = '/agriculturalProcess';
   }
 }
