@@ -15,7 +15,7 @@ import {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardIrrigationDetailsComponent, IrrigationFormComponent, CardPlantationComponent, NavbarAgriculturalProducerComponent, HomeAgriculturalProcessComponent],
+  imports: [RouterOutlet, HomeAgriculturalProcessComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

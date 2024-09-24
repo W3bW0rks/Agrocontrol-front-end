@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatTableModule } from "@angular/material/table";
 import { AgriculturalProcedure } from "../../models/agricultural-procedure.entity";
-import {DatePipe} from "@angular/common";
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: 'app-card-plantation',
@@ -15,19 +15,31 @@ import {DatePipe} from "@angular/common";
 export class CardPlantationComponent {
   displayedColumns: string[] = ['plantType', 'quantity', 'startDate', 'endDate'];
 
-  // Este es el arreglo que será mostrado en la tabla
-  dataSource: AgriculturalProcedure[] = [
-    new AgriculturalProcedure({
-      id: 1,
-      userId: 123,
-      plantType: 'Carrots',
-      starDate: new Date('2023-09-01'),
-      endDate: new Date('2023-10-01'),
-      isFinished: false,
-      details: 'First planting season'
-    }),
-    // Agrega más instancias según sea necesario
-  ];
+  // Recibimos el proceso agrícola como input
+  @Input()
+  agriculturalProcess: AgriculturalProcedure = {
+    id: 1,
+    userId: 123,
+    plantType: 'Carrots',
+    startDate: new Date('2023-09-01'),
+    endDate: new Date('2023-10-01'),
+    isFinished: false,
+    details: 'First planting season'
+  };
 
-  // Aquí puedes agregar más métodos si se necesitan en el componente
+  agriculturalProcessId: number = 1;
+
+  // Método para crear una plantación y actualizar la fecha de inicio
+  createPlanting() {
+    this.agriculturalProcess.startDate = new Date(); // Fecha actual
+    localStorage.setItem('agriculturalProcessId', this.agriculturalProcessId.toString());
+    console.log(`agriculturalProcessId stored: ${this.agriculturalProcessId}`);
+    console.log(`Start Date set to: ${this.agriculturalProcess.startDate}`);
+  }
+
+  // Método para finalizar la plantación y actualizar la fecha de fin
+  finishPlanting() {
+    this.agriculturalProcess.endDate = new Date(); // Fecha actual
+    console.log(`Finish Date set to: ${this.agriculturalProcess.endDate}`);
+  }
 }
