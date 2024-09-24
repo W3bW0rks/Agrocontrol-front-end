@@ -2,7 +2,7 @@ import {Component, Input, SimpleChanges} from '@angular/core';
 import {DatePipe} from "@angular/common";
 import {MatButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardTitle} from "@angular/material/card";
-import {Treatment} from "../../models/treatment.entity";
+import {CropTreatment} from "../../models/crop-treatment.entity";
 
 @Component({
   selector: 'app-card-treatment-details',
@@ -18,7 +18,7 @@ import {Treatment} from "../../models/treatment.entity";
   styleUrl: './card-treatment-details.component.css'
 })
 export class CardTreatmentDetailsComponent {
-  @Input() treatment!: Treatment | null;
+  @Input() treatment!: CropTreatment | null;
   ngOnChanges(changes: SimpleChanges) {
     if (changes['treatments']) {
       console.log('Irrigation updated:', this.treatment);

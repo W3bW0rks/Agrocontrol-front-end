@@ -1,4 +1,4 @@
-export class Treatment {
+export class CropTreatment {
   id: number;
   agriculturalProcessId: number;
   treatmentType: string;
@@ -7,7 +7,7 @@ export class Treatment {
   totalWorkersCost: number;
   workers: { workerId: number; cost: number }[];
 
-  constructor(treatment: {
+  constructor(cropTreatment: {
     id?: number;
     agriculturalProcessId?: number;
     treatmentType?: string;
@@ -16,12 +16,12 @@ export class Treatment {
     totalWorkersCost?: number;
     workers?: { workerId: number; cost: number }[];
   }) {
-    this.id = treatment.id || 0;
-    this.agriculturalProcessId = treatment.agriculturalProcessId || 0;
-    this.treatmentType = treatment.treatmentType || '';
-    this.date = treatment.date || '';
-    this.productsUsed = treatment.productsUsed || [];
-    this.totalWorkersCost = treatment.totalWorkersCost || 0;
-    this.workers = treatment.workers || [];
+    this.id = cropTreatment.id || 0;
+    this.agriculturalProcessId = cropTreatment.agriculturalProcessId || 0;
+    this.treatmentType = cropTreatment.treatmentType || '';
+    this.date = cropTreatment.date || '';
+    this.productsUsed = cropTreatment.productsUsed || [];
+    this.totalWorkersCost = cropTreatment.totalWorkersCost || 0;
+    this.workers = cropTreatment.workers || [];
   }
 }

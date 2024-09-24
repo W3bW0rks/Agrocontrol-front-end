@@ -9,7 +9,7 @@ import { PlantationService } from "../../services/plantation.service";
 import { TreatmentService } from "../../services/treatment.service";
 import { IrrigationService } from "../../services/irrigation.service";
 import { AgriculturalProcedure } from "../../models/agricultural-procedure.entity";
-import { Treatment } from "../../models/treatment.entity";
+import { CropTreatment } from "../../models/crop-treatment.entity";
 import { Irrigation } from "../../models/irrigation.entity";
 
 @Component({
@@ -42,11 +42,11 @@ export class HomeAgriculturalProcessComponent implements OnInit, AfterViewInit {
   private treatmentService: TreatmentService = inject(TreatmentService);
   private elementRef: ElementRef = inject(ElementRef); // Para lazy loading con IntersectionObserver
 
-  treatments: Treatment[] = [];
-  fumigations: Treatment[] = [];
-  fertilizations: Treatment[] = [];
-  upcomingFumigation: Treatment | null = null;
-  upcomingFertilization: Treatment | null = null;
+  treatments: CropTreatment[] = [];
+  fumigations: CropTreatment[] = [];
+  fertilizations: CropTreatment[] = [];
+  upcomingFumigation: CropTreatment | null = null;
+  upcomingFertilization: CropTreatment | null = null;
 
   irrigations: Irrigation[] = [];
   upcomingIrrigation: Irrigation | null = null;
@@ -109,7 +109,7 @@ export class HomeAgriculturalProcessComponent implements OnInit, AfterViewInit {
   // Obtener los tratamientos
   private getTreatments() {
     this.treatmentService.getAll().subscribe({
-      next: (response: Treatment[]) => {
+      next: (response: CropTreatment[]) => {
         // Filtrar tratamientos por agriculturalProcessId
         this.treatments = response.filter(treatment => treatment.agriculturalProcessId === this.agriculturalProcessId);
 
@@ -128,7 +128,7 @@ export class HomeAgriculturalProcessComponent implements OnInit, AfterViewInit {
   }
 
   // Obtener la próxima fumigación o fertilización
-  private getUpcomingTreatment(treatments: Treatment[]): Treatment | null {
+  private getUpcomingTreatment(treatments: CropTreatment[]): CropTreatment | null {
     const today = new Date();
     const upcomingTreatments = treatments
       .filter(treatment => new Date(treatment.date) >= today)

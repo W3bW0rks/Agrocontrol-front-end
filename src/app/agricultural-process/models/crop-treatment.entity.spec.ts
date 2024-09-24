@@ -1,8 +1,8 @@
-import { Treatment } from './treatment.entity';
+import { CropTreatment } from './crop-treatment.entity';
 
 describe('TreatmentEntity', () => {
   it('should create an instance', () => {
     // @ts-ignore
-    expect(new Treatment()).toBeTruthy();
+    expect(new CropTreatment()).toBeTruthy();
   });
 });
