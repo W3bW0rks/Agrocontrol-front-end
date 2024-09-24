@@ -1,0 +1,17 @@
+<div class="flex flex-row w-dvw flex-wrap gap-4">
+  <app-field-card *ngFor="let field of fields" [field]="field" (deleteField)="reload()" (editField)="onFieldEdited()"/>
+  <div class="flex justify-center items-center">
+    <button class="relative object-center" mat-button (click)="openModal()"><img class="w-7" src="/assets/img/add.png" alt="Add field"></button>
+  </div>
+</div>
+
+<app-field-form-edit
+  *ngIf="isModalOpen"
+  [currentUserId]="currentUserId"
+  [isModalOpen]="isModalOpen"
+  (close)="closeModal()"
+  (success)="onFieldAdded()">
+</app-field-form-edit>
+
+
+

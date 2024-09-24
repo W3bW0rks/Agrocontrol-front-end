@@ -112,17 +112,27 @@
       "endDate": null,
       "isFinished": false,
       "details": "Tomato process"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "plantType": "Potato",
+      "startDate": null,
+      "endDate": null,
+      "isFinished": false,
+      "details": "Potato process"
     }
   ],
   "seedingDetails": [
     {
       "id": 1,
       "agriculturalProcessId": 1,
+      "plantType": "Tomato",
       "date": "2024-09-15",
       "plantedQuantity": 1000,
       "totalPlantCost": 500,
       "totalWorkersCost": 200,
-      "workers" : [
+      "workers": [
         {
           "workerId": 1,
           "cost": 100
@@ -138,10 +148,10 @@
     {
       "id": 1,
       "agriculturalProcessId": 1,
-      "date": "2024-09-20",
+      "date": "2024-09-25",
       "hoursIrrigated": 5,
       "totalWorkersCost": 200,
-      "workers" : [
+      "workers": [
         {
           "workerId": 1,
           "cost": 100
@@ -155,10 +165,10 @@
     {
       "id": 2,
       "agriculturalProcessId": 1,
-      "date": "2024-09-22",
+      "date": "2024-09-24",
       "hoursIrrigated": 3,
       "totalWorkersCost": 100,
-      "workers" : [
+      "workers": [
         {
           "workerId": 1,
           "cost": 100
@@ -183,7 +193,7 @@
         }
       ],
       "totalWorkersCost": 200,
-      "workers" : [
+      "workers": [
         {
           "workerId": 1,
           "cost": 100
@@ -198,7 +208,7 @@
       "id": 2,
       "agriculturalProcessId": 1,
       "treatmentType": "Fumigation",
-      "date": "2024-09-25",
+      "date": "2024-09-27",
       "productsUsed": [
         {
           "productId": 2,
@@ -206,7 +216,7 @@
         }
       ],
       "totalWorkersCost": 100,
-      "workers" : [
+      "workers": [
         {
           "workerId": 1,
           "cost": 100
@@ -223,7 +233,7 @@
       "pricePerKg": 2,
       "totalIncome": 2000,
       "totalWorkersCost": 200,
-      "workers" : [
+      "workers": [
         {
           "workerId": 1,
           "cost": 100
@@ -242,7 +252,7 @@
       "pricePerKg": 2,
       "totalIncome": 1000,
       "totalWorkersCost": 100,
-      "workers" : [
+      "workers": [
         {
           "workerId": 1,
           "cost": 100
@@ -273,37 +283,46 @@
   "fieldWorkers": [
     {
       "id": 1,
-      "fieldId": 1,
+      "userId": 1,
       "fullName": "Field Worker 1",
       "phone": "123456789",
       "documentNumber": "12345678"
     },
     {
       "id": 2,
-      "fieldId": 1,
+      "userId": 1,
       "fullName": "Field Worker 2",
       "phone": "123456789",
       "documentNumber": "12345678"
     },
     {
       "id": 3,
-      "fieldId": 1,
+      "userId": 1,
       "fullName": "Field Worker 3",
       "phone": "123456789",
       "documentNumber": "12345678"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "fullName": "Worker 4",
+      "phone": "123456789",
+      "documentNumber": "87654321"
     }
   ],
   "products": [
     {
       "id": 1,
+      "userId": 1,
       "name": "Fertilizer",
-      "price": 10,
+      "totalCost": 1000,
       "quantity": 100
     },
     {
       "id": 2,
+      "userId": 1,
       "name": "Pesticide",
-      "price": 20,
+      "totalCost": 500,
       "quantity": 50
     }
   ]
