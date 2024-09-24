@@ -61,10 +61,6 @@ export class HomeViewComponent implements OnInit, AfterViewInit {
   agriculturalProcessId: number = 0;
   private totalWorkers: number = 0;    // Contador de trabajadores a procesar
   private processedWorkers: number = 0;
-  isSidenavOpened = true;
-  toggleSidenav() {
-    this.isSidenavOpened = !this.isSidenavOpened;
-  }
   ngOnInit(): void {
     this.loadAgriculturalProcessId();  // Cargar el ID desde localStorage
   }
