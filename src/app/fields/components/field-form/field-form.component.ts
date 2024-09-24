@@ -25,6 +25,8 @@ import { MatInputModule } from "@angular/material/input";
 })
 export class FieldFormComponent implements OnInit{
   @Input() isModalOpen: boolean=true ;
+  @Input() type:string = 'Add';
+  @Input() fieldId!:number;
   @Input() currentUserId!:number;
   @Output() close = new EventEmitter<void>();
   @Output() success = new EventEmitter<void>();
@@ -46,9 +48,15 @@ export class FieldFormComponent implements OnInit{
 
   onSubmit(){
     if(this.fieldForm.form.valid){
-      this.fieldService.create(this.field).subscribe((response:any)=>{
-        console.log("Field created", response)
-      })
+      if(this.type==='Add'){
+        this.fieldService.create(this.field).subscribe((response:any)=>{
+          console.log("Field created", response)
+        })
+      }else{
+        this.fieldService.update(this.fieldId,this.field).subscribe((response:any)=>{
+          console.log("Field Updated", response)
+        })
+      }
       this.success.emit();
       this.resetForm();
       this.isModalOpen=false;
@@ -58,9 +66,7 @@ export class FieldFormComponent implements OnInit{
   }
   onEdit(fieldId:number){
     if(this.fieldForm.form.valid){
-      this.fieldService.update(fieldId,this.field).subscribe((response:any)=>{
-        console.log("Field Updated", response)
-      })
+
       this.success.emit();
       this.resetForm();
       this.isModalOpen=false;

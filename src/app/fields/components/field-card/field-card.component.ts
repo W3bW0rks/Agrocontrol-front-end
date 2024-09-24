@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {Fields} from "../../models/fields.entity";
 import {MatCard, MatCardActions, MatCardContent, MatCardImage} from "@angular/material/card";
 import {MatButton} from "@angular/material/button";
+import {FieldsService} from "../../services/fields.service";
 
 @Component({
   selector: 'app-field-card',
@@ -18,14 +19,24 @@ import {MatButton} from "@angular/material/button";
 })
 export class FieldCardComponent {
   @Input() field!: Fields;
-  @Output() editField= new EventEmitter<Fields>();
-  @Output() deleteField= new EventEmitter<number>;
+  @Output() deleteField = new EventEmitter<void>();
+  @Output() editField = new EventEmitter<void>();
 
-  onEditField(){
-    this.editField.emit(this.field)
+  fieldService : FieldsService = inject(FieldsService);
+
+  onFieldDeleted(fieldId:number):void{
+    this.fieldService.delete(fieldId).subscribe((response:any)=>{
+      console.log(`Field with ID ${fieldId} deleted successfully.`);
+      this.deleteField.emit();
+    })
   }
-  onDeleteField(){
-    this.deleteField.emit(this.field.id)
+
+  onFieldEdited(fieldId:number):void{
+    console.log(fieldId);
+    this.fieldService.update(fieldId,this.field).subscribe((response:any)=>{
+      console.log(`Field with ID ${fieldId} updated successfully.`);
+      this.editField.emit();
+    })
   }
 
 }
