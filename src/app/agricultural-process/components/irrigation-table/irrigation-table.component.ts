@@ -1,31 +1,41 @@
-import {Component, inject, OnInit} from '@angular/core';
-import { TableComponent} from "./components/table/table.component";
+import {Component, inject, Input, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
-import {IrrigationService} from "../../services/irrigation.service";
-import {Worker} from "../../../fields/models/worker.entity";
 import {Irrigation} from "../../models/irrigation.entity";
+import {NgForOf} from "@angular/common";
+import {
+  WorkersTablePopUpComponent
+} from "../../../fields/components/workers-table-pop-up/workers-table-pop-up.component";
 
 @Component({
   selector: 'app-irrigation-table',
   standalone: true,
   imports: [
-    TableComponent,
-    RouterLink
+    RouterLink,
+    NgForOf,
+    WorkersTablePopUpComponent
   ],
   templateUrl: './irrigation-table.component.html',
   styleUrl: './irrigation-table.component.css'
 })
 
-export class IrrigationTableComponent implements OnInit {
+export class IrrigationTableComponent {
 
-  private _irrigationService : IrrigationService = inject(IrrigationService);
-  protected dataSource!: Array<Irrigation>;
+  @Input()
+  irrigations!: Array<Irrigation>;
 
-  ngOnInit() : void  {
-    this._getIrrigations();
+  selectedWorkers: any[] = [];
+
+  displayedColumns: string[] = ['date', 'hoursIrrigated', 'workers'];
+
+  isModalOpen: boolean = false;
+
+  openModal(workers: any[]) {
+    this.selectedWorkers = workers; // Asigna los trabajadores de la irrigación actual
+    this.isModalOpen = true; // Abre el modal
   }
 
-  private _getIrrigations(): void {
-    this._irrigationService.getAll().subscribe((response: Array<Irrigation>) => this.dataSource = response);
+  closeModal() {
+    this.isModalOpen = false;
   }
+
 }
