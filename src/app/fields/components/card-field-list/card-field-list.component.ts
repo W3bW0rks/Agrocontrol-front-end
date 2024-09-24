@@ -1,12 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Fields} from "../../models/fields.entity";
-import {FieldsService} from "../../services/fields.service";
-import {FieldCardComponent} from "../field-card/field-card.component";
+import { Component, Input, OnInit } from '@angular/core';
+import { Fields } from "../../models/fields.entity";
+import { FieldsService } from "../../services/fields.service";
+import { FieldCardComponent } from "../field-card/field-card.component";
 import { CommonModule } from '@angular/common';
-import {MatButton} from "@angular/material/button";
-import {FieldFormComponent} from "../field-form/field-form.component";
-import {MatIconModule} from "@angular/material/icon";
-import {Router} from "@angular/router";
+import { MatButton } from "@angular/material/button";
+import { FieldFormComponent } from "../field-form/field-form.component";
+import { MatIconModule } from "@angular/material/icon";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-card-field-list',
@@ -19,20 +19,19 @@ import {Router} from "@angular/router";
     MatIconModule
   ],
   templateUrl: './card-field-list.component.html',
-  styleUrl: './card-field-list.component.css'
+  styleUrls: ['./card-field-list.component.css']
 })
-export class CardFieldListComponent implements OnInit{
-  type:string='Add';
-  fields: Fields[]=[];
-  currentUserId!:number;
-  currentProcessId!:number;
-  isModalOpen:boolean=false;
+export class CardFieldListComponent implements OnInit {
+  fields: Fields[] = [];
+  @Input() currentUserId!: number;
+  isModalOpen: boolean = false;
+  isEditModalOpen: boolean = false; // Nueva variable para manejar el modal de edición
+  selectedFieldId!: number; // ID del campo seleccionado para editar
 
-  constructor(private fieldService:FieldsService, private router: Router) {
-  }
+  constructor(private fieldService: FieldsService, private router: Router) {}
 
   ngOnInit(): void {
-    this.loadCurrentUserId(); // Carga el userId desde el localStorage
+    this.loadCurrentUserId(); // Carga el userId desde localStorage
     this.loadFields();
   }
 
@@ -61,10 +60,8 @@ export class CardFieldListComponent implements OnInit{
     }
   }
 
-
   openModal(): void {
     this.isModalOpen = true;
-    this.type='Add';
   }
 
   closeModal(): void {
@@ -76,12 +73,13 @@ export class CardFieldListComponent implements OnInit{
     this.closeModal();
   }
 
+  closeEditModal(): void {
+    this.isEditModalOpen = false;
+  }
 
-  protected readonly open = open;
-
-  editModal() {
-    this.isModalOpen = true;
-    this.type = 'Edit';
+  onFieldEdited(): void {
+    this.loadFields();
+    this.closeEditModal();
   }
 
   reload() {
@@ -91,5 +89,4 @@ export class CardFieldListComponent implements OnInit{
   goToHome(fieldId: number) {
     this.router.navigate(['home-agricultural-process', fieldId]);
   }
-
 }

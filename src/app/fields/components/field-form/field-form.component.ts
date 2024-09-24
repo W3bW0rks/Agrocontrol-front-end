@@ -46,35 +46,25 @@ export class FieldFormComponent implements OnInit{
     this.field=new Fields({});
   }
 
-  onSubmit(){
-    if(this.fieldForm.form.valid){
-      if(this.type==='Add'){
-        this.fieldService.create(this.field).subscribe((response:any)=>{
-          console.log("Field created", response)
-        })
-      }else{
-        this.fieldService.update(this.fieldId,this.field).subscribe((response:any)=>{
-          console.log("Field Updated", response)
-        })
+  onSubmit() {
+    if (this.fieldForm.form.valid) {
+      if (this.fieldId) {
+        this.fieldService.update(this.fieldId, this.field).subscribe((response: any) => {
+          console.log('Field Updated', response);
+          this.success.emit();
+          this.resetForm();
+          this.isModalOpen = false;
+        });
+      } else {
+        this.fieldService.create(this.field).subscribe((response: any) => {
+          console.log('Field Created', response);
+          this.success.emit();
+          this.resetForm();
+          this.isModalOpen = false;
+        });
       }
-      this.success.emit();
-      this.resetForm();
-      this.isModalOpen=false;
-    }else{
-      console.log("Form is invalid")
     }
   }
-  onEdit(fieldId:number){
-    if(this.fieldForm.form.valid){
-
-      this.success.emit();
-      this.resetForm();
-      this.isModalOpen=false;
-    }else{
-      console.log("Form is invalid")
-    }
-  }
-
   onCancel() {
     this.resetForm();
     this.isModalOpen = false;
