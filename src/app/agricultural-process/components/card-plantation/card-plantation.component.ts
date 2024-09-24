@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatTableModule } from "@angular/material/table";
-import { AgriculturalProcedure } from "../../models/agricultural-procedure.entity";
+import { AgriculturalProcess } from "../../models/agricultural-process.entity";
 import { DatePipe } from "@angular/common";
 
 @Component({
@@ -17,7 +17,7 @@ export class CardPlantationComponent {
 
   // Recibimos el proceso agrícola como input
   @Input()
-  agriculturalProcess: AgriculturalProcedure = {
+  agriculturalProcess: AgriculturalProcess = {
     id: 1,
     userId: 123,
     plantType: 'Carrots',

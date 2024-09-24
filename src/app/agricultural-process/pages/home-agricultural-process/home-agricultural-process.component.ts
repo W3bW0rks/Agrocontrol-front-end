@@ -5,12 +5,14 @@ import { NavbarAgriculturalProducerComponent } from "../../../shared/components/
 import { CardPlantationComponent } from "../../components/card-plantation/card-plantation.component";
 import { CardIrrigationDetailsComponent } from "../../components/card-irrigation-details/card-irrigation-details.component";
 import { CardTreatmentDetailsComponent } from "../../components/card-treatment-details/card-treatment-details.component";
-import { PlantationService } from "../../services/plantation.service";
-import { TreatmentService } from "../../services/treatment.service";
+import { AgriculturalProcessService } from "../../services/agricultural-process.service";
+import { CropTreatmentService } from "../../services/crop-treatment.service";
 import { IrrigationService } from "../../services/irrigation.service";
-import { AgriculturalProcedure } from "../../models/agricultural-procedure.entity";
+import { AgriculturalProcess } from "../../models/agricultural-process.entity";
 import { CropTreatment } from "../../models/crop-treatment.entity";
 import { Irrigation } from "../../models/irrigation.entity";
+import {SeedingService} from "../../services/seeding.service";
+import {WorkerService} from "../../../fields/services/worker.service";
 
 @Component({
   selector: 'app-home-agricultural-process',
@@ -27,7 +29,7 @@ import { Irrigation } from "../../models/irrigation.entity";
   styleUrls: ['./home-agricultural-process.component.css']
 })
 export class HomeAgriculturalProcessComponent implements OnInit, AfterViewInit {
-  agriculturalProcess: AgriculturalProcedure = {
+  agriculturalProcess: AgriculturalProcess = {
     id: 0,
     userId: 0,
     plantType: '',
@@ -37,9 +39,11 @@ export class HomeAgriculturalProcessComponent implements OnInit, AfterViewInit {
     details: ''
   };
 
-  private plantationService: PlantationService = inject(PlantationService);
+  private plantationService: AgriculturalProcessService = inject(AgriculturalProcessService);
   private irrigationService: IrrigationService = inject(IrrigationService);
-  private treatmentService: TreatmentService = inject(TreatmentService);
+  private treatmentService: CropTreatmentService = inject(CropTreatmentService);
+  private seedingService:SeedingService = inject(SeedingService);
+  private workerService:WorkerService = inject(WorkerService);
   private elementRef: ElementRef = inject(ElementRef); // Para lazy loading con IntersectionObserver
 
   treatments: CropTreatment[] = [];
@@ -101,7 +105,7 @@ export class HomeAgriculturalProcessComponent implements OnInit, AfterViewInit {
 
   // Obtener los datos de la plantación por ID
   private getPlantationById() {
-    this.plantationService.getById(this.agriculturalProcessId).subscribe((response: AgriculturalProcedure) => {
+    this.plantationService.getById(this.agriculturalProcessId).subscribe((response: AgriculturalProcess) => {
       this.agriculturalProcess = response;
     });
   }

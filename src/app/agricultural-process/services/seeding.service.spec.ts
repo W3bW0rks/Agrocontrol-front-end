@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CropTreatmentService } from './crop-treatment.service';
+import { SeedingService } from './seeding.service';
 
-describe('TreatmentService', () => {
-  let service: CropTreatmentService;
+describe('SeedingService', () => {
+  let service: SeedingService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CropTreatmentService);
+    service = TestBed.inject(SeedingService);
   });
 
   it('should be created', () => {

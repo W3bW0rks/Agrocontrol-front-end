@@ -1,4 +1,4 @@
-export class AgriculturalProcedure{
+export class AgriculturalProcess {
   id: number;
   userId: number;
   plantType: string;
