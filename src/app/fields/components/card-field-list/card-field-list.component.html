@@ -1,7 +1,23 @@
-<div class="flex flex-row w-dvw flex-wrap gap-4">
-  <app-field-card *ngFor="let field of fields" [field]="field" (deleteField)="reload()" (editField)="onFieldEdited()"/>
-  <div class="flex justify-center items-center">
-    <button class="relative object-center" mat-button (click)="openModal()"><img class="w-7" src="/assets/img/add.png" alt="Add field"></button>
+<div class="flex flex-col md:flex-row flex-wrap gap-4">
+  <div class="flex flex-wrap justify-center w-full">
+    <app-field-card
+      *ngFor="let field of fields"
+      [field]="field"
+      (deleteField)="reload()"
+      (editField)="editModal()"
+      (click)="goToHome(field.id)"
+      class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-2 transition-transform transform hover:scale-105"
+    />
+  </div>
+  <div class="flex justify-center items-center w-full mt-4">
+    <button
+      class="flex items-center justify-center w-12 h-12 bg-green-600 text-white rounded-full hover:bg-green-700 transition"
+      mat-button
+      (click)="openModal()"
+      aria-label="Add Field"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
 </div>
 
@@ -10,15 +26,6 @@
   [currentUserId]="currentUserId"
   [isModalOpen]="isModalOpen"
   (close)="closeModal()"
-  (success)="onFieldAdded()">
-</app-field-form>
-
-<!-- Formulario de agregar -->
-<app-field-form
-  *ngIf="isModalOpen"
-  [currentUserId]="currentUserId"
-  [isModalOpen]="isModalOpen"
-  (close)="closeModal()"
   (success)="onFieldAdded()"
+  class="w-full max-w-lg mx-auto mt-4"
 ></app-field-form>
-

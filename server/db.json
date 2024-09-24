@@ -107,9 +107,20 @@
     {
       "id": 1,
       "fieldId": 1,
+      "plantType": "Tomato",
       "startDate": "2024-09-15",
       "endDate": null,
-      "isFinished": false
+      "isFinished": false,
+      "details": "Tomato process"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "plantType": "Potato",
+      "startDate": null,
+      "endDate": null,
+      "isFinished": false,
+      "details": "Potato process"
     }
   ],
   "seedingDetails": [
@@ -137,7 +148,7 @@
     {
       "id": 1,
       "agriculturalProcessId": 1,
-      "date": "2024-09-20",
+      "date": "2024-09-25",
       "hoursIrrigated": 5,
       "totalWorkersCost": 200,
       "workers": [
@@ -154,7 +165,7 @@
     {
       "id": 2,
       "agriculturalProcessId": 1,
-      "date": "2024-09-22",
+      "date": "2024-09-24",
       "hoursIrrigated": 3,
       "totalWorkersCost": 100,
       "workers": [
@@ -197,7 +208,7 @@
       "id": 2,
       "agriculturalProcessId": 1,
       "treatmentType": "Fumigation",
-      "date": "2024-09-25",
+      "date": "2024-09-27",
       "productsUsed": [
         {
           "productId": 2,
