@@ -1,0 +1,63 @@
+<h2> {{ isEditMode() ? 'Edit Harvest': 'New Harvest' }}</h2>
+<div class="form-section">
+  <form #harvestForm="ngForm" (submit)="onSubmit()" class="form-row">
+    <mat-form-field id="date-form-field" class="short-text-field">
+      <input [(ngModel)]="harvest.date" matInput name="date" placeholder="Date" required>
+    </mat-form-field>
+    <mat-form-field id="harvestedQuantityInKg-form-field" class="long-text-field">
+      <input [(ngModel)]="harvest.harvestedQuantityInKg" matInput name="harvestedQuantityInKg" placeholder="Harvest Quantity In Kg" required>
+    </mat-form-field>
+    <mat-form-field id="pricePerKg-form-field" class="long-text-field">
+      <input [(ngModel)]="harvest.pricePerKg" matInput name="pricePerKg" placeholder="Price per Kg" required>
+    </mat-form-field>
+
+   <!-- <div *ngFor="let worker of workers; let i = index" class="flex justify-center items-center space-x-2 mb-2">
+      <mat-form-field appearance="fill" class="flex-1">
+        <mat-label>Worker</mat-label>
+        <mat-select placeholder="Worker" [(ngModel)]="workers[i].workerId" name="worker{{i}}" required>
+          <mat-option *ngFor="let fieldWorker of fieldWorkers" [value]="fieldWorker.id">{{ fieldWorker.fullName }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="flex-1">
+        <mat-label>Cost</mat-label>
+        <input matInput type="number" [(ngModel)]="workers[i].cost" name="cost{{i}}" required>
+      </mat-form-field>
+
+      <button
+        type="button"
+        class="bg-red-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-red-700 transition-all duration-300 ease-in-out transform hover:scale-105"
+        (click)="removeWorker(i)">
+        Remove
+      </button>
+
+
+    </div>
+
+    <button
+      type="button"
+      (click)="addWorker()"
+      class="bg-secondary text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-secondary-hover transition-all duration-300 ease-in-out transform hover:scale-105">
+      Add Worker
+    </button> -->
+
+    <ng-container>
+      <button color="primary" mat-raised-button>{{ isEditMode() ? 'Update' : 'Add'}}</button>
+      <button (click)="onCancel()" color="warn" mat-raised-button>Cancel</button>
+    </ng-container>
+
+  </form>
+
+  <div *ngIf="showWarning" class="mt-8">
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+      <strong class="font-bold">Warning!<br></strong>
+      <span class="block sm:inline">Please fill out all the fields.</span>
+      <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+        <svg (click)="showWarning = false" class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+          <title>Close</title>
+          <path fill-rule="evenodd" d="M14.95 5.05a.75.75 0 0 1 1.06 1.06L11.06 10l4.95 4.95a.75.75 0 1 1-1.06 1.06L10 11.06l-4.95 4.95a.75.75 0 0 1-1.06-1.06L8.94 10 4.05 5.05a.75.75 0 0 1 1.06-1.06L10 8.94l4.95-4.95z"></path>
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
