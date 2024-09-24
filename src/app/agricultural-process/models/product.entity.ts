@@ -19,3 +19,4 @@ export class Product {
     this.quantity = product.quantity || 0;
   }
 }
+

@@ -1,0 +1,13 @@
+<mat-drawer-container class="h-screen flex">
+  <!-- Sidenav -->
+  <mat-drawer #drawer class="w-64 !text-white !bg-slate-800" mode="side" [opened]="isSidenavOpened">
+    <app-sidenav-agricultural-producer></app-sidenav-agricultural-producer>
+  </mat-drawer>
+
+  <!-- Contenido principal -->
+  <mat-drawer-content class="flex flex-row">
+    <app-navbar-agricultural-producer (toggleSidenav)="toggleSidenav()"></app-navbar-agricultural-producer>
+
+    <app-home-view></app-home-view>
+  </mat-drawer-content>
+</mat-drawer-container>
