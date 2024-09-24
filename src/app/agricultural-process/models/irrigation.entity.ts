@@ -1,6 +1,8 @@
 export class Irrigation {
+
   id: number;
   agriculturalProcessId: number;
+
   date: string;
   hoursIrrigated: number;
   totalWorkersCost: number;

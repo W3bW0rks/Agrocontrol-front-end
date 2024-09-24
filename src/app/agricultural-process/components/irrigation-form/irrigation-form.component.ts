@@ -27,17 +27,24 @@ import {NgForOf, NgIf} from "@angular/common";
   styleUrl: './irrigation-form.component.css'
 })
 export class IrrigationFormComponent {
+
   @Input() agriculturalProcessId!: number;
   @Input() date!: string;
+
   success = false;
   irrigation!: Irrigation;
+
   @ViewChild('irrigationForm', { static: false }) irrigationForm!: NgForm;
+
   fieldWorkers: any = [];
+
   workers: { workerId: number; cost: number }[] = [
     { workerId: 0, cost: 0 }
   ];
+
   irrigationService: IrrigationService = inject(IrrigationService);
   workerService: WorkerService = inject(WorkerService);
+
   showWarning = false;
 
   constructor() {
@@ -64,6 +71,7 @@ export class IrrigationFormComponent {
 
       this.irrigationService.create(this.irrigation).subscribe((response: any) => {
         console.log('Irrigation created', response);
+
       }, error => {
         console.error('Error creating irrigation', error);
       });

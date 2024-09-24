@@ -6,7 +6,6 @@ import {Irrigation} from "../models/irrigation.entity";
   providedIn: 'root'
 })
 export class IrrigationService extends BaseService<Irrigation>{
-
   constructor() {
     super();
     this.resourceEndpoint = '/irrigationDetails';
