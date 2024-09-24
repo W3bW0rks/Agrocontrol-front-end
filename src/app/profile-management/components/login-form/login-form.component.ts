@@ -4,7 +4,7 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {User} from "../../models/user.entity";
 import {UserService} from "../../services/user.service";
-
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-login-form',
   standalone: true,
@@ -21,6 +21,7 @@ export class LoginFormComponent {
   user!: User;
   @ViewChild('userForm', { static: false }) userForm!: NgForm;
   userService: UserService = inject(UserService);
+  router: Router = inject(Router);
 
   constructor() {
     this.user = new User({});
@@ -43,7 +44,18 @@ export class LoginFormComponent {
           if (foundUser) {
             console.log('User logged in:', foundUser);
             localStorage.setItem('user', JSON.stringify(foundUser)); // Guardar el usuario encontrado
-            // Redirigir a otra página o ejecutar alguna acción después del inicio de sesión
+
+            // Obtener el ID y el rol del usuario guardado en localStorage
+            const storedUser = localStorage.getItem('user');
+            if (storedUser) {
+              const userObj = JSON.parse(storedUser);
+              const userId = userObj.id; // Aquí obtenemos el ID del usuario
+              const userRole = userObj.roles; // Aquí obtenemos el rol del usuario
+
+              // Redirigir a otra página usando el Router con el rol y el ID
+              this.router.navigate([`field/${userRole}/${userId}`]); // Navega a la ruta con el rol y el ID del usuario
+            }
+
             this.resetForm();
           } else {
             console.log('Invalid username or password');

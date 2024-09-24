@@ -107,6 +107,7 @@
     {
       "id": 1,
       "fieldId": 1,
+      "plantType": "Tomato",
       "startDate": "2024-09-15",
       "endDate": null,
       "isFinished": false,
@@ -119,8 +120,7 @@
       "startDate": null,
       "endDate": null,
       "isFinished": false,
-      "details": "Potato process",
-      "isFinished": false
+      "details": "Potato process"
     }
   ],
   "seedingDetails": [
