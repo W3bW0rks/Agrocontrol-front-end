@@ -13,7 +13,9 @@ import { CropTreatment } from "../../models/crop-treatment.entity";
 import { Irrigation } from "../../models/irrigation.entity";
 import {SeedingService} from "../../services/seeding.service";
 import {WorkerService} from "../../../fields/services/worker.service";
-
+import {Seeding} from "../../models/seeding.entity";
+import {forkJoin, Observable} from 'rxjs';
+import {Worker} from "../../../fields/models/worker.entity";
 @Component({
   selector: 'app-home-agricultural-process',
   standalone: true,
@@ -55,9 +57,12 @@ export class HomeAgriculturalProcessComponent implements OnInit, AfterViewInit {
   irrigations: Irrigation[] = [];
   upcomingIrrigation: Irrigation | null = null;
 
+  seedings: Seeding[] = []
+  nameWorkers: string[] = []
   agriculturalProcessId: number = 0;
+  private totalWorkers: number = 0;    // Contador de trabajadores a procesar
+  private processedWorkers: number = 0;
   isSidenavOpened = true;
-
   ngOnInit(): void {
     this.loadAgriculturalProcessId();  // Cargar el ID desde localStorage
   }
@@ -101,6 +106,7 @@ export class HomeAgriculturalProcessComponent implements OnInit, AfterViewInit {
     this.getPlantationById();
     this.getTreatments();
     this.getIrrigations();
+    this.getWorkersFromSeeding()
   }
 
   // Obtener los datos de la plantación por ID
@@ -162,6 +168,50 @@ export class HomeAgriculturalProcessComponent implements OnInit, AfterViewInit {
       .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
     return upcomingIrrigations.length > 0 ? upcomingIrrigations[0] : null;
+  }
+  private getWorkersFromSeeding() {
+    const workerRequests: Observable<Worker>[] = [];
+    this.seedingService.getAll().subscribe({
+      next: (response: Seeding[]) => {
+        this.seedings = response.filter(seeding => seeding.agriculturalProcessId === this.agriculturalProcessId);
+
+        if (this.seedings.length > 0) {
+
+          this.seedings.forEach(seeding => {
+            if (seeding.workers && seeding.workers.length > 0) {
+              // Agregar todas las solicitudes de trabajadores al array
+              seeding.workers.forEach(worker => {
+                workerRequests.push(this.workerService.getById(worker.workerId));
+              });
+            }
+          });
+
+          if (workerRequests.length > 0) {
+            // Hacemos las solicitudes de los trabajadores en paralelo
+            forkJoin(workerRequests).subscribe({
+              next: (workerDetails: any[]) => {
+                this.nameWorkers = workerDetails.map(worker => worker.fullName);
+                console.log('Nombres de los trabajadores:', this.nameWorkers);
+              },
+              error: (error: any) => {
+                console.error('Error al obtener los detalles de los trabajadores:', error);
+              }
+            });
+          } else {
+            // Si no hay trabajadores
+            this.nameWorkers.push('Don\'t have workers');
+            console.log('Nombres de los trabajadores:', this.nameWorkers);
+          }
+        } else {
+          // Si no hay siembras
+          this.nameWorkers.push('Don\'t have workers');
+          console.log('Nombres de los trabajadores:', this.nameWorkers);
+        }
+      },
+      error: (error: any) => {
+        console.error('Error al obtener las siembras:', error);
+      }
+    });
   }
 
   // Método para alternar el sidenav
