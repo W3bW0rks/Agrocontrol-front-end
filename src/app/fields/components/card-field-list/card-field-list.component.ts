@@ -5,8 +5,7 @@ import { FieldCardComponent } from "../field-card/field-card.component";
 import { CommonModule } from '@angular/common';
 import { MatButton } from "@angular/material/button";
 import { FieldFormComponent } from "../field-form/field-form.component";
-import { MatIconModule } from "@angular/material/icon";
-import { Router } from "@angular/router";
+import { FieldFormEditComponent } from "../field-form-edit/field-form-edit.component";
 
 @Component({
   selector: 'app-card-field-list',
@@ -16,10 +15,10 @@ import { Router } from "@angular/router";
     FieldCardComponent,
     MatButton,
     FieldFormComponent,
-    MatIconModule
+    FieldFormEditComponent
   ],
   templateUrl: './card-field-list.component.html',
-  styleUrls: ['./card-field-list.component.css']
+  styleUrl: './card-field-list.component.css'
 })
 export class CardFieldListComponent implements OnInit {
   fields: Fields[] = [];
@@ -31,33 +30,18 @@ export class CardFieldListComponent implements OnInit {
   constructor(private fieldService: FieldsService) {}
 
   ngOnInit(): void {
-    this.loadCurrentUserId(); // Carga el userId desde localStorage
     this.loadFields();
   }
 
-  loadCurrentUserId(): void {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      const userObj = JSON.parse(storedUser);
-      this.currentUserId = userObj.id; // Asigna el userId desde el objeto almacenado en localStorage
-    } else {
-      console.log('No user found in localStorage');
-    }
-  }
-
   loadFields(): void {
-    if (this.currentUserId) {
-      this.fieldService.getAll().subscribe({
-        next: (data) => {
-          this.fields = data.filter((field) => field.userId === this.currentUserId);
-        },
-        error: (error) => {
-          console.log('Error fetching fields:', error);
-        }
-      });
-    } else {
-      console.log('User ID not set');
-    }
+    this.fieldService.getAll().subscribe({
+      next: (data) => {
+        this.fields = data.filter((field) => field.userId === this.currentUserId);
+      },
+      error: (error) => {
+        console.log('Error fetching fields:', error);
+      }
+    });
   }
 
   openModal(): void {
@@ -86,3 +70,4 @@ export class CardFieldListComponent implements OnInit {
     this.loadFields();
   }
 }
+
