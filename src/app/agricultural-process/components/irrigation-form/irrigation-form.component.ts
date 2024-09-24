@@ -8,6 +8,7 @@ import {WorkerService} from "../../../fields/services/worker.service";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {MatButton} from "@angular/material/button";
 import {NgForOf, NgIf} from "@angular/common";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-irrigation-form',
@@ -47,7 +48,7 @@ export class IrrigationFormComponent {
 
   showWarning = false;
 
-  constructor() {
+  constructor(private router: Router) {
     this.irrigation = new Irrigation({});
     this.getWorkers();
   }
@@ -113,6 +114,7 @@ export class IrrigationFormComponent {
   onCancel() {
     this.resetForm();
     this.success = false;
+    this.router.navigate(['/irrigation-view'])
   }
 
 }

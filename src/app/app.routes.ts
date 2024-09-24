@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import {
   IrrigationSchedulerComponent
 } from './agricultural-process/pages/irrigation-scheduler/irrigation-scheduler.component';
+import {IrrigationViewComponent} from "./agricultural-process/pages/irrigation-view/irrigation-view.component";
 import {
   CropTreatmentSchedulerComponent
 } from './agricultural-process/pages/crop-treatment-scheduler/crop-treatment-scheduler.component';
@@ -46,9 +47,13 @@ export const routes: Routes = [
         component: WorkerManagementComponent,
       },
       {
-        path: 'irrigation-scheduler/:id',
+        path: 'irrigation-scheduler',
         component: IrrigationSchedulerComponent,
         data: { name: 'irrigation-scheduler' }
+      },
+      {
+        path: 'irrigation-view',
+        component: IrrigationViewComponent,
       },
       {
         path: 'seeding-registration/:id',
