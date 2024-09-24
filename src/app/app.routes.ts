@@ -13,43 +13,47 @@ import { LoginFormComponent } from './profile-management/components/login-form/l
 import { CardFieldListComponent } from './fields/components/card-field-list/card-field-list.component';
 import {
   HomeAgriculturalProcessComponent
-} from "./agricultural-process/pages/home-agricultural-process/home-agricultural-process.component";
+} from "./public/pages/home-agricultural-process/home-agricultural-process.component";
+import {HomeViewComponent} from "./agricultural-process/pages/home-view/home-view.component";
 
 export const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginFormComponent,
+    data: { name: 'login' }
+  },
   {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
   },
   {
-    path: 'login',
-    component: LoginFormComponent,
-    data: { name: 'login' }
-  },
-  // Ruta con parámetros dinámicos para el role y el id
-  {
     path: 'field/:role/:id',
     component: CardFieldListComponent,
     data: { name: 'field' }
   },
   {
-    path: 'irrigation-scheduler/:id',
-    component: IrrigationSchedulerComponent,
-    data: { name: 'irrigation-scheduler' }
-  },
-  {
-    path: 'home-agricultural-process/:id',
-    component: HomeAgriculturalProcessComponent,
-    data: { name: 'home-agricultural-process' }
-  },
-  {
-    path: 'seeding-registration/:id',
-    component: SeedingRegistrationComponent,
-    data: { name: 'seeding-registration' }
-  },
-  {
-    path: 'crop-treatment-scheduler/:id',
-    component: CropTreatmentSchedulerComponent,
-    data: { name: 'crop-treatment-scheduler' }
+    path: '', component: HomeAgriculturalProcessComponent,
+    children: [
+      {
+        path: 'home',
+        component: HomeViewComponent,
+      },
+      {
+        path: 'irrigation-scheduler/:id',
+        component: IrrigationSchedulerComponent,
+        data: { name: 'irrigation-scheduler' }
+      },
+      {
+        path: 'seeding-registration/:id',
+        component: SeedingRegistrationComponent,
+        data: { name: 'seeding-registration' }
+      },
+      {
+        path: 'crop-treatment-scheduler/:id',
+        component: CropTreatmentSchedulerComponent,
+        data: { name: 'crop-treatment-scheduler' }
+      }
+    ]
   }
 ];
