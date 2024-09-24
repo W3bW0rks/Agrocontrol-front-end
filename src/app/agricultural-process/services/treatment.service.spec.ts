@@ -1,14 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BaseService } from './base.service';
+import { CropTreatmentService } from './crop-treatment.service';
 
-describe('BaseService', () => {
-  // @ts-ignore
-  let service: BaseService;
+describe('TreatmentService', () => {
+  let service: CropTreatmentService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BaseService);
+    service = TestBed.inject(CropTreatmentService);
   });
 
   it('should be created', () => {

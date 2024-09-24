@@ -5,3 +5,4 @@ describe('CropTreatmentEntity', () => {
     expect(new CropTreatmentEntity()).toBeTruthy();
   });
 });
+

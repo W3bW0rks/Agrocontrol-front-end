@@ -1,21 +1,26 @@
 export class AgriculturalProcess {
   id: number;
-  fieldId: number;
-  startDate: string;
-  endDate: string;
+  userId: number;
+  plantType: string;
+  startDate: Date | null;
+  endDate: Date | null
   isFinished: boolean;
-
-  constructor( agriculturalProcess: {
+  details:    string;
+  constructor(agriculturalProcedure:{
     id?: number;
-    fieldId?: number;
-    startDate?: string;
-    endDate?: string;
+    userId?: number;
+    plantType?: string;
+    startDate?: Date;
+    endDate?: Date;
     isFinished?: boolean;
+    details?: string;
   }) {
-    this.id = agriculturalProcess.id || 0;
-    this.fieldId = agriculturalProcess.fieldId || 0;
-    this.startDate = agriculturalProcess.startDate || '';
-    this.endDate = agriculturalProcess.endDate || '';
-    this.isFinished = agriculturalProcess.isFinished || false;
+    this.id = agriculturalProcedure.id || 0;
+    this.userId = agriculturalProcedure.userId || 0;
+    this.plantType = agriculturalProcedure.plantType || "";
+    this.startDate = agriculturalProcedure.startDate || null;
+    this.endDate = agriculturalProcedure.endDate || null;
+    this.isFinished = agriculturalProcedure.isFinished || false;
+    this.details = agriculturalProcedure.details || "";
   }
 }

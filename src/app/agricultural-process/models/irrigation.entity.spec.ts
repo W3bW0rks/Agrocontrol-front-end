@@ -1,7 +1,8 @@
-import { IrrigationEntity } from './irrigation.entity';
+import { Irrigation } from './irrigation.entity';
 
 describe('IrrigationEntity', () => {
   it('should create an instance', () => {
-    expect(new IrrigationEntity()).toBeTruthy();
+    // @ts-ignore
+    expect(new Irrigation()).toBeTruthy();
   });
 });
