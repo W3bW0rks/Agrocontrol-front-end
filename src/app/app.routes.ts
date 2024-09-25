@@ -17,6 +17,9 @@ import {
 import {HomeViewComponent} from "./agricultural-process/pages/home-view/home-view.component";
 import {FieldsViewComponent} from "./fields/pages/fields-view/fields-view.component";
 import {WorkerManagementComponent} from "./fields/pages/worker-management/worker-management.component";
+import {
+  CropTreatmentViewComponent
+} from "./agricultural-process/pages/crop-treatment-view/crop-treatment-view.component";
 
 
 export const routes: Routes = [
@@ -56,12 +59,17 @@ export const routes: Routes = [
         component: IrrigationViewComponent,
       },
       {
-        path: 'seeding-registration/:id',
+        path: 'seeding-registration',
         component: SeedingRegistrationComponent,
         data: { name: 'seeding-registration' }
       },
       {
-        path: 'crop-treatment-scheduler/:id',
+        path: 'crop-treatment-view',
+        component: CropTreatmentViewComponent,
+        data: { name: 'crop-treatment-view' }
+      },
+      {
+        path: 'crop-treatment-scheduler',
         component: CropTreatmentSchedulerComponent,
         data: { name: 'crop-treatment-scheduler' }
       }

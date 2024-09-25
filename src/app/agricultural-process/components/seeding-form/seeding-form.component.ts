@@ -10,6 +10,7 @@ import { SeedingService } from '../../services/seeding.service';
 import { WorkerService } from '../../../fields/services/worker.service';
 import { AgriculturalProcess } from '../../models/agricultural-process.entity';
 import { AgriculturalProcessService } from '../../services/agricultural-process.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-seeding-form',
@@ -40,6 +41,8 @@ export class SeedingFormComponent implements OnInit {
   showWarning = false;
   agriculturalProcess!: AgriculturalProcess;
   agriculturalProcessService: AgriculturalProcessService = inject(AgriculturalProcessService);
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
     console.log('Agricultural Process ID:', this.agriculturalProcessId);
@@ -114,6 +117,7 @@ export class SeedingFormComponent implements OnInit {
   }
 
   onCancel() {
+    this.router.navigate(['/home-agricultural-process/:id']);
     this.resetForm();
     this.success = false;
   }

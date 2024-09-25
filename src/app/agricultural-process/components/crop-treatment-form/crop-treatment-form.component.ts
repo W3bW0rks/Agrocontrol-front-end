@@ -10,7 +10,7 @@ import {CropTreatment} from "../../models/crop-treatment.entity";
 import {CropTreatmentService} from "../../services/crop-treatment.service";
 import {WorkerService} from "../../../fields/services/worker.service";
 import {ProductsService} from "../../services/products.service";
-
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-crop-treatment-form',
   standalone: true,
@@ -47,7 +47,7 @@ export class CropTreatmentFormComponent {
   productService: ProductsService = inject(ProductsService);
   showWarning = false;
 
-  constructor() {
+  constructor(private router: Router) {
     this.cropTreatment = new CropTreatment({});
     this.getProducts();
     this.getWorkers();
@@ -134,5 +134,6 @@ export class CropTreatmentFormComponent {
   onCancel() {
     this.resetForm();
     this.success = false;
+    this.router.navigate(['/crop-treatment-view'])
   }
 }

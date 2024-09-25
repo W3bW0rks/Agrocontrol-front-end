@@ -4,8 +4,9 @@ import { FieldsService } from "../../services/fields.service";
 import { FieldCardComponent } from "../field-card/field-card.component";
 import { CommonModule } from '@angular/common';
 import { MatButton } from "@angular/material/button";
-import { FieldFormEditComponent } from "../field-form/field-form.component";
-import { FieldFormComponent } from "../field-form-edit/field-form-edit.component";
+import {FieldFormComponent} from "../field-form/field-form.component";
+import {FieldFormEditComponent} from "../field-form-edit/field-form-edit.component";
+
 
 @Component({
   selector: 'app-card-field-list',
@@ -15,6 +16,7 @@ import { FieldFormComponent } from "../field-form-edit/field-form-edit.component
     FieldCardComponent,
     MatButton,
     FieldFormComponent,
+    FieldFormEditComponent,
   ],
   templateUrl: './card-field-list.component.html',
   styleUrl: './card-field-list.component.css'
