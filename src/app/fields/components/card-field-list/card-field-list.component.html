@@ -5,13 +5,13 @@
   </div>
 </div>
 
-<app-field-form-edit
+<app-field-form
   *ngIf="isModalOpen"
   [currentUserId]="currentUserId"
   [isModalOpen]="isModalOpen"
   (close)="closeModal()"
   (success)="onFieldAdded()">
-</app-field-form-edit>
+</app-field-form>
 
 
 
