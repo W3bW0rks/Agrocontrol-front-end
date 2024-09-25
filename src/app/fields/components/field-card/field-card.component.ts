@@ -4,10 +4,11 @@ import { MatCard, MatCardActions, MatCardContent, MatCardImage } from "@angular/
 import { MatButton } from "@angular/material/button";
 import { FieldsService } from "../../services/fields.service";
 import { NgIf } from "@angular/common";
-import { FieldFormComponent } from "../field-form-edit/field-form-edit.component";
+
 import {Router} from "@angular/router";
-import {FieldFormEditComponent} from "../field-form/field-form.component";
+import {FieldFormComponent} from "../field-form/field-form.component";
 import {AgriculturalProcessService} from "../../../agricultural-process/services/agricultural-process.service";
+import {FieldFormEditComponent} from "../field-form-edit/field-form-edit.component";
 
 @Component({
   selector: 'app-field-card',
