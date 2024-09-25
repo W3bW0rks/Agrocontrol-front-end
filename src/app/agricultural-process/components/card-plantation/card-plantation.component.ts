@@ -4,6 +4,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatTableModule } from "@angular/material/table";
 import { AgriculturalProcess } from "../../models/agricultural-process.entity";
 import { DatePipe } from "@angular/common";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-card-plantation',
@@ -28,13 +29,14 @@ export class CardPlantationComponent {
   };
 
   agriculturalProcessId: number = 1;
-
-  // Método para crear una plantación y actualizar la fecha de inicio
+  constructor(private router: Router) {
+  }
   createPlanting() {
-    this.agriculturalProcess.startDate = new Date(); // Fecha actual
-    localStorage.setItem('agriculturalProcessId', this.agriculturalProcessId.toString());
-    console.log(`agriculturalProcessId stored: ${this.agriculturalProcessId}`);
-    console.log(`Start Date set to: ${this.agriculturalProcess.startDate}`);
+    this.router.navigate(['/seeding-registration']);
+    // this.agriculturalProcess.startDate = new Date(); // Fecha actual
+    // localStorage.setItem('agriculturalProcessId', this.agriculturalProcessId.toString());
+    // console.log(`agriculturalProcessId stored: ${this.agriculturalProcessId}`);
+    // console.log(`Start Date set to: ${this.agriculturalProcess.startDate}`);
   }
 
   // Método para finalizar la plantación y actualizar la fecha de fin

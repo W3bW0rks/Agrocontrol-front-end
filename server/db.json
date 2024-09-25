@@ -98,9 +98,9 @@
     {
       "id": 1,
       "userId": 1,
-      "fieldName": "Field North",
-      "fieldSize": 30,
-      "fieldLocation": "Lima"
+      "fieldName": "prueba2",
+      "fieldSize": 90000,
+      "fieldLocation": "2500"
     }
   ],
   "agriculturalProcess": [
@@ -148,7 +148,7 @@
     {
       "id": 1,
       "agriculturalProcessId": 1,
-      "date": "2024-09-25",
+      "date": "2024-09-28",
       "hoursIrrigated": 5,
       "totalWorkersCost": 200,
       "workers": [
@@ -165,7 +165,7 @@
     {
       "id": 2,
       "agriculturalProcessId": 1,
-      "date": "2024-09-24",
+      "date": "2024-09-30",
       "hoursIrrigated": 3,
       "totalWorkersCost": 100,
       "workers": [
@@ -181,7 +181,7 @@
       "id": 1,
       "agriculturalProcessId": 1,
       "treatmentType": "Fertilization",
-      "date": "2024-09-25",
+      "date": "2024-09-27",
       "productsUsed": [
         {
           "productId": 1,
@@ -208,7 +208,7 @@
       "id": 2,
       "agriculturalProcessId": 1,
       "treatmentType": "Fumigation",
-      "date": "2024-09-27",
+      "date": "2024-09-28",
       "productsUsed": [
         {
           "productId": 2,
