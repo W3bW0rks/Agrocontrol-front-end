@@ -47,7 +47,8 @@
       "city": "Lima",
       "country": "Peru",
       "phone": "123456789",
-      "documentNumber": "12345678"
+      "companyName": "Distributor Company",
+      "ruc": "1234567890"
     }
   ],
   "user_subscription": [
@@ -97,85 +98,90 @@
     {
       "id": 1,
       "userId": 1,
-      "fieldName": "Field North",
-      "fieldSize": 30,
-      "fieldLocation": "Lima"
+      "fieldName": "prueba2",
+      "fieldSize": 90000,
+      "fieldLocation": "2500"
     }
   ],
-  "processes": [
+  "agriculturalProcess": [
     {
       "id": 1,
-      "type": "SEEDING",
-      "scheduledDate": "2024-09-15",
       "fieldId": 1,
-      "totalWorkerCost": 1000,
-      "hours": null,
-      "workers": [
-        {
-          "workerId": 1,
-          "cost": 200
-        },
-        {
-          "workerId": 2,
-          "cost": 200
-        },
-        {
-          "workerId": 3,
-          "cost": 200
-        },
-        {
-          "workerId": 4,
-          "cost": 200
-        },
-        {
-          "workerId": 5,
-          "cost": 200
-        }
-      ],
-      "productsUsed": null,
-      "harvestedQuantityKg": null,
-      "pricePerKg": null,
-      "plantedQuantity": 1000,
-      "totalPlantCost": 1500,
-      "details": "Seeding process"
+      "plantType": "Tomato",
+      "startDate": "2024-09-15",
+      "endDate": null,
+      "isFinished": false,
+      "details": "Tomato process"
     },
     {
       "id": 2,
-      "type": "IRRIGATION",
-      "scheduledDate": "2024-09-20",
-      "fieldId": 1,
-      "totalWorkerCost": 100,
-      "hours": 5,
+      "userId": 2,
+      "plantType": "Potato",
+      "startDate": null,
+      "endDate": null,
+      "isFinished": false,
+      "details": "Potato process"
+    }
+  ],
+  "seedingDetails": [
+    {
+      "id": 1,
+      "agriculturalProcessId": 1,
+      "plantType": "Tomato",
+      "date": "2024-09-15",
+      "plantedQuantity": 1000,
+      "totalPlantCost": 500,
+      "totalWorkersCost": 200,
+      "workers": [
+        {
+          "workerId": 1,
+          "cost": 100
+        },
+        {
+          "workerId": 2,
+          "cost": 100
+        }
+      ]
+    }
+  ],
+  "irrigationDetails": [
+    {
+      "id": 1,
+      "agriculturalProcessId": 1,
+      "date": "2024-09-28",
+      "hoursIrrigated": 5,
+      "totalWorkersCost": 200,
+      "workers": [
+        {
+          "workerId": 1,
+          "cost": 100
+        },
+        {
+          "workerId": 2,
+          "cost": 100
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "agriculturalProcessId": 1,
+      "date": "2024-09-30",
+      "hoursIrrigated": 3,
+      "totalWorkersCost": 100,
       "workers": [
         {
           "workerId": 1,
           "cost": 100
         }
-      ],
-      "productsUsed": null,
-      "harvestedQuantityKg": null,
-      "pricePerKg": null,
-      "plantedQuantity": null,
-      "totalPlantCost": null,
-      "details": "Irrigation process"
-    },
+      ]
+    }
+  ],
+  "cropTreatments": [
     {
-      "id": 3,
-      "type": "FUMIGATION",
-      "scheduledDate": "2024-09-25",
-      "fieldId": 1,
-      "totalWorkerCost": 400,
-      "hours": 7,
-      "workers": [
-        {
-          "workerId": 1,
-          "cost": 200
-        },
-        {
-          "workerId": 2,
-          "cost": 200
-        }
-      ],
+      "id": 1,
+      "agriculturalProcessId": 1,
+      "treatmentType": "Fertilization",
+      "date": "2024-09-27",
       "productsUsed": [
         {
           "productId": 1,
@@ -186,70 +192,138 @@
           "quantity": 5
         }
       ],
-      "harvestedQuantityKg": null,
-      "pricePerKg": null,
-      "plantedQuantity": null,
-      "totalPlantCost": null,
-      "details": "Fumigation process"
+      "totalWorkersCost": 200,
+      "workers": [
+        {
+          "workerId": 1,
+          "cost": 100
+        },
+        {
+          "workerId": 2,
+          "cost": 100
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "agriculturalProcessId": 1,
+      "treatmentType": "Fumigation",
+      "date": "2024-09-28",
+      "productsUsed": [
+        {
+          "productId": 2,
+          "quantity": 5
+        }
+      ],
+      "totalWorkersCost": 100,
+      "workers": [
+        {
+          "workerId": 1,
+          "cost": 100
+        }
+      ]
+    }
+  ],
+  "harvestDetails": [
+    {
+      "id": 1,
+      "agriculturalProcessId": 1,
+      "date": "2024-09-30",
+      "harvestedQuantityInKg": 1000,
+      "pricePerKg": 2,
+      "totalIncome": 2000,
+      "totalWorkersCost": 200,
+      "workers": [
+        {
+          "workerId": 1,
+          "cost": 100
+        },
+        {
+          "workerId": 2,
+          "cost": 100
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "agriculturalProcessId": 1,
+      "date": "2024-09-30",
+      "harvestedQuantityInKg": 500,
+      "pricePerKg": 2,
+      "totalIncome": 1000,
+      "totalWorkersCost": 100,
+      "workers": [
+        {
+          "workerId": 1,
+          "cost": 100
+        }
+      ]
     }
   ],
   "finances": [
     {
       "id": 1,
-      "processId": 1,
-      "totalCost": 3000,
-      "totalRevenue": null,
-      "date": "2024-09-25"
+      "agriculturalProcessId": 1,
+      "date": "2024-09-25",
+      "totalCost": 1000,
+      "totalRevenue": 2000,
+      "profit": 1000,
+      "details": "Profit from harvest"
     },
     {
       "id": 2,
-      "processId": 2,
-      "totalCost": 3000,
-      "totalRevenue": null,
-      "date": "2024-09-25"
+      "agriculturalProcessId": 2,
+      "date": "2024-09-25",
+      "totalCost": 1000,
+      "totalRevenue": 2000,
+      "profit": 1000,
+      "details": "Profit from harvest"
+    }
+  ],
+  "fieldWorkers": [
+    {
+      "id": 1,
+      "userId": 1,
+      "fullName": "Field Worker 1",
+      "phone": "123456789",
+      "documentNumber": "12345678"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "fullName": "Field Worker 2",
+      "phone": "123456789",
+      "documentNumber": "12345678"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "fullName": "Field Worker 3",
+      "phone": "123456789",
+      "documentNumber": "12345678"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "fullName": "Worker 4",
+      "phone": "123456789",
+      "documentNumber": "87654321"
     }
   ],
   "products": [
     {
       "id": 1,
+      "userId": 1,
       "name": "Fertilizer",
-      "price": 10,
+      "totalCost": 1000,
       "quantity": 100
     },
     {
       "id": 2,
+      "userId": 1,
       "name": "Pesticide",
-      "price": 20,
+      "totalCost": 500,
       "quantity": 50
-    }
-  ],
-  "agriculturalProcess": [
-    {
-      "id": 1,
-      "startDate": "2024-09-15",
-      "endDate": null,
-      "isFinished": false,
-      "fieldId": 1,
-      "seedingId": 1,
-      "irrigations": [
-        {
-          "irrigationId": 2
-        }
-      ],
-      "fumigations": [
-        {
-          "fumigationId": 3
-        }
-      ],
-      "harvestings": [],
-      "finances": [
-        {
-          "financeId": 1
-        },
-        {
-          "financeId": 2
-        }
-      ]
     }
   ]
 }
