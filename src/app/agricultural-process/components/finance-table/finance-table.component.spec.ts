@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FinancesViewComponent } from './finances-view.component';
+import { FinanceTableComponent } from './finance-table.component';
 
-describe('FinancesViewComponent', () => {
-  let component: FinancesViewComponent;
-  let fixture: ComponentFixture<FinancesViewComponent>;
+describe('FinanceTableComponent', () => {
+  let component: FinanceTableComponent;
+  let fixture: ComponentFixture<FinanceTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FinancesViewComponent]
+      imports: [FinanceTableComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FinancesViewComponent);
+    fixture = TestBed.createComponent(FinanceTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

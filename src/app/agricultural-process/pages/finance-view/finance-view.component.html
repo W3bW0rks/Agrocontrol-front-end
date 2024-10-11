@@ -1,6 +1,9 @@
 <div class="finance">
   <div class="finance__container">
     <h2 class="finance__title"> Finances</h2>
+    <app-finance-table [finances]="dataSource"/>
+    <button class="finance__button button--add" [routerLink]="'/crop-treatment-scheduler'">Add</button>
+
   </div>
 
 </div>

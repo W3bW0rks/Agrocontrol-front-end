@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Finance } from "../../models/finance.entity";
 import { RouterLink} from "@angular/router";
 import {FinanceService} from "../../services/finance.service";
+import {FinanceTableComponent} from "../../components/finance-table/finance-table.component";
 
 
 @Component({
@@ -9,6 +10,7 @@ import {FinanceService} from "../../services/finance.service";
   standalone: true,
   imports: [
     RouterLink,
+    FinanceTableComponent,
 
   ],
   templateUrl: './finance-view.component.html',

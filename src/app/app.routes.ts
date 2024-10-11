@@ -20,7 +20,6 @@ import {WorkerManagementComponent} from "./fields/pages/worker-management/worker
 import {
   CropTreatmentViewComponent
 } from "./agricultural-process/pages/crop-treatment-view/crop-treatment-view.component";
-import {FinancesViewComponent} from "./agricultural-process/pages/finances-view/finances-view.component";
 import {FinanceViewComponent} from "./agricultural-process/pages/finance-view/finance-view.component";
 
 
