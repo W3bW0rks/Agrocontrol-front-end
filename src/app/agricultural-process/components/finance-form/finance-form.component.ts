@@ -32,7 +32,7 @@ export class FinanceFormComponent {
   financeService: FinanceService = inject(FinanceService);
 
   constructor() {
-    this.finance = new Finance();
+    this.finance = new Finance( {});
   }
 
   resetForm() {
@@ -43,7 +43,9 @@ export class FinanceFormComponent {
   onSubmit() {
     if (this.financeForm.form.valid) {
       this.finance.agriculturalProcessId = this.agriculturalProcessId
-
+      this.finance.totalProfit = (this.finance.totalRevenue !== undefined && this.finance.totalCost !== undefined)
+        ? this.finance.totalRevenue - this.finance.totalCost
+        : undefined;
       this.financeService.create(this.finance).subscribe((response: any) => {
         console.log('Finance created', response);
 

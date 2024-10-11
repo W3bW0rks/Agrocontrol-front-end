@@ -1,7 +1,7 @@
 export class Finance {
-  id?: number;
+  id: number;
   agriculturalProcessId?: number;
-  date?: string;
+  date: string;
   totalCost?: number;
   totalRevenue?: number;
   totalProfit?: number;
@@ -12,9 +12,10 @@ export class Finance {
     date?: string;
     totalCost?: number;
     totalRevenue?: number;
-  } = {}) {
-    this.id = finance.id;
-    this.date = finance.date;
+    totalProfit?: number;
+  }) {
+    this.id = finance.id || 0;
+    this.date = finance.date || '';
     this.agriculturalProcessId = finance.agriculturalProcessId;
     this.totalCost = finance.totalCost;
     this.totalRevenue = finance.totalRevenue;

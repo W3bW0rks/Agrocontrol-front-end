@@ -228,52 +228,20 @@
     {
       "id": 1,
       "agriculturalProcessId": 1,
-      "date": "2024-09-25",
-      "totalCost": 1000,
-      "totalRevenue": 2000,
-      "totalProfit": 1000,
-      "details": "Profit from harvest"
+      "date": "12-04-12",
+      "totalCost": "2",
+      "totalRevenue": "5",
+      "totalProfit": 3,
+      "apiId": "v1"
     },
     {
       "id": 2,
-      "agriculturalProcessId": 2,
-      "date": "2024-09-25",
-      "totalCost": 1000,
-      "totalRevenue": 2000,
+      "agriculturalProcessId": 1,
+      "date": "10-06-24",
+      "totalCost": "1000",
+      "totalRevenue": "2000",
       "totalProfit": 1000,
-      "details": "Profit from harvest"
-    },
-    {
-      "id": 3,
-      "agriculturalProcessId": 1,
-      "date": "12-32-323",
-      "totalCost": "212",
-      "totalRevenue": "123",
-      "totalProfit": 0
-    },
-    {
-      "agriculturalProcessId": 1,
-      "date": "12-32-323",
-      "totalCost": "12",
-      "totalRevenue": "121",
-      "totalProfit": "12",
-      "id": 4
-    },
-    {
-      "agriculturalProcessId": 1,
-      "date": "123",
-      "totalCost": "1221",
-      "totalRevenue": "12332",
-      "totalProfit": "2332",
-      "id": 5
-    },
-    {
-      "agriculturalProcessId": 1,
-      "date": "12-32-323",
-      "totalCost": "32",
-      "totalRevenue": "323",
-      "totalProfit": "23",
-      "id": 6
+      "apiId": "v1"
     }
   ],
   "harvestDetails": [
