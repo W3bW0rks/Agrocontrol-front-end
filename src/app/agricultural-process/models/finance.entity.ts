@@ -1,22 +1,23 @@
 export class Finance {
-  id: number;
-  date: string;
-  totalCost: number;
-  totalRevenue: number;
-  totalProfit: number;
+  id?: number;
+  agriculturalProcessId?: number;
+  date?: string;
+  totalCost?: number;
+  totalRevenue?: number;
+  totalProfit?: number;
 
-  constructor(finance:{
-    id? : number;
-    date? : string;
-    totalCost? : number;
-    totalRevenue? : number;
-
-  }) {
-    this.id = finance.id || 0;
-    this.date = finance.date || '';
-    this.totalCost = finance.totalCost || 0;
-    this.totalRevenue = finance.totalRevenue || 0;
-    this.totalProfit = this.totalRevenue - this.totalCost;
+  constructor(finance: {
+    id?: number;
+    agriculturalProcessId?: number;
+    date?: string;
+    totalCost?: number;
+    totalRevenue?: number;
+  } = {}) {
+    this.id = finance.id;
+    this.date = finance.date;
+    this.agriculturalProcessId = finance.agriculturalProcessId;
+    this.totalCost = finance.totalCost;
+    this.totalRevenue = finance.totalRevenue;
+    this.totalProfit = this.totalRevenue && this.totalCost ? this.totalRevenue - this.totalCost : undefined;
   }
-
 }
